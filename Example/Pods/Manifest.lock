@@ -1,0 +1,26 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Kiwi (2.4.0)
+  - RDSRemoteDataSolutions (0.2.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Kiwi
+  - RDSRemoteDataSolutions (from `../`)
+
+EXTERNAL SOURCES:
+  RDSRemoteDataSolutions:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  RDSRemoteDataSolutions: 3324271fc1a8e17d1ed7430a0e5da3afe58a60a5
+
+PODFILE CHECKSUM: b7fc622cd0a2036f6797d372f8cc4269694b854c
+
+COCOAPODS: 1.1.0.rc.2

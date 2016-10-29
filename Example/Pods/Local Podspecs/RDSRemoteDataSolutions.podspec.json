@@ -1,0 +1,22 @@
+{
+  "name": "RDSRemoteDataSolutions",
+  "version": "0.2.0",
+  "summary": "A short description of RDSRemoteDataSolutions.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/RDSRemoteDataSolutions",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Christian Fox": "christianfox890@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/RDSRemoteDataSolutions.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RDSRemoteDataSolutions/Classes/**/*"
+}
