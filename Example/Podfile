@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'RDSRemoteDataSolutions_Example' do
+  pod 'RDSRemoteDataSolutions', :path => '../'
+
+  target 'RDSRemoteDataSolutions_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+  end
+end
