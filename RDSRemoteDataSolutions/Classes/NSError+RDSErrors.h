@@ -7,6 +7,8 @@
 
 +(instancetype)rds_submissionIsNilError;
 +(instancetype)rds_submissionURLIsNilError;
++(instancetype)rds_submissionParametersIsNil;
++(instancetype)rds_SubmissionContentTypeIsUndefined;
 +(instancetype)rds_jsonDataIsNilError;
 +(instancetype)rds_jsonDataLengthIsZeroError;
 +(instancetype)rds_URLEncodedStringIsNilError;

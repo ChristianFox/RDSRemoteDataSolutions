@@ -1,6 +1,0 @@
-framework module Pods_RDSRemoteDataSolutions_Example {
-  umbrella header "Pods-RDSRemoteDataSolutions_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

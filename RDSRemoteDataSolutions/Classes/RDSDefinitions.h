@@ -22,11 +22,21 @@ typedef NS_ENUM(NSInteger, RDSError) {
     RDSErrorUnknown,
     RDSErrorSubmissionIsNil,
     RDSErrorSubmissionURLIsNil,
+    RDSErrorSubmissionContentTypeIsUndefined,
+    RDSErrorSubmissionParametersIsNil,
     RDSErrorJSONDataIsNil,
     RDSErrorJSONDataLengthIsZero,
     RDSErrorURLEncodedStringIsNil,
     RDSErrorURLEncodedStringLengthIsZero,
-    RDSErrorURLIsNil
+    RDSErrorURLIsNil,
+    
+};
+
+typedef NS_ENUM(NSInteger, RDSSubmissionContentType) {
+    RDSSubmissionContentTypeUndefined,
+    RDSSubmissionContentTypeNone,
+    RDSSubmissionContentTypeJSONData,
+    RDSSubmissionContentTypeWWWURLEncodedString
 };
 
 

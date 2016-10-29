@@ -42,19 +42,54 @@
          withCompletion:(RDSNetworkResponseCompletionBlock)completionBlock{
     
     // ## Defensive
+    NSError *error;
     if (submission == nil) {
-        NSError *error = [NSError rds_submissionIsNilError];
-        completionBlock(nil,nil,error);
-        return;
+        error = [NSError rds_submissionIsNilError];
     }else if ([submission destinationURL] == nil){
-        NSError *error = [NSError rds_submissionURLIsNilError];
+        error = [NSError rds_submissionURLIsNilError];
+    }else if ([submission submissionContentType] == RDSSubmissionContentTypeUndefined){
+        error = [NSError rds_SubmissionContentTypeIsUndefined];
+    }
+    
+    if (error != nil) {
         completionBlock(nil,nil,error);
         return;
     }
     
-    
     // ## Passed Defenses
-    
+    if ([submission submissionContentType] == RDSSubmissionContentTypeNone) {
+        
+        [self.networkConnector dataTaskWithURL:[submission destinationURL]
+                                    completion:completionBlock];
+        
+    }else{
+        
+        if ([submission parameters] == nil) {
+            error = [NSError rds_submissionParametersIsNil];
+            completionBlock(nil,nil,error);
+            return;
+        }
+
+        if ([submission submissionContentType] == RDSSubmissionContentTypeJSONData) {
+            
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[submission parameters]
+                                                               options:kNilOptions
+                                                                 error:&error];
+            if (jsonData == nil) {
+                completionBlock(nil,nil,error);
+                return;
+            }
+            [self.networkConnector dataTaskWithJSONData:jsonData
+                                                    URL:[submission destinationURL]
+                                             HTTPMethod:[submission HTTPMethod]
+                                             completion:completionBlock];
+
+            
+        }else if ([submission submissionContentType] == RDSSubmissionContentTypeWWWURLEncodedString){
+            
+            
+        }
+    }
     
     
 }
