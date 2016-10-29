@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSURL*__nullable)destinationURL;
 -(RDSSubmissionContentType)submissionContentType;
 @optional
--(NSDictionary*)parameters;
--(NSString*)HTTPMethod;
+-(NSDictionary*__nullable)parameters;
+-(NSString*__nullable)HTTPMethod;
 
 
 @end

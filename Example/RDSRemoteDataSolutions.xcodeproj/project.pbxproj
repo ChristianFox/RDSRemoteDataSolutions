@@ -26,6 +26,7 @@
 		DBC759851DC4BAAC00CDC97F /* RDSSubmitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */; };
 		DBC7598D1DC4BEBB00CDC97F /* MOCKSubmission.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */; };
 		DBC759A01DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */; };
+		DBC759CE1DC548C200CDC97F /* RDSHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		DBC7598B1DC4BEBB00CDC97F /* MOCKSubmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKSubmission.h; sourceTree = "<group>"; };
 		DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKSubmission.m; sourceTree = "<group>"; };
 		DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSNetworkConnectorLiveTests.m; sourceTree = "<group>"; };
+		DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSHelperTests.m; sourceTree = "<group>"; };
 		E46A485E89E46EB6F0EF8FE5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 				DBC7597E1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m */,
 				DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */,
 				DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */,
+				DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */,
 				DBC7598A1DC4BEA700CDC97F /* Mocks */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -439,6 +442,7 @@
 				DBC7597F1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m in Sources */,
 				DBC759A01DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m in Sources */,
 				DBC759851DC4BAAC00CDC97F /* RDSSubmitterTests.m in Sources */,
+				DBC759CE1DC548C200CDC97F /* RDSHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

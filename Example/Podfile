@@ -2,6 +2,12 @@ use_frameworks!
 
 target 'RDSRemoteDataSolutions_Example' do
   pod 'RDSRemoteDataSolutions', :path => '../'
+  ## Sources
+  ### If using private pods
+  source 'https://bitbucket.org/kfxteam/kfxtech_cocoapodsspec'
+  ### If using from trunk
+  source 'http://github.com/Cocoapods/Specs.git'
+  pod 'KFXAdditions'
 
   target 'RDSRemoteDataSolutions_Tests' do
     inherit! :search_paths

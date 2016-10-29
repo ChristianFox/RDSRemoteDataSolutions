@@ -96,12 +96,12 @@
                         }
                         
                         if (data != nil) {
-                            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data
                                                                                      options:kNilOptions
                                                                                        error:nil];
-                            XCTAssertNotNil(jsonDict);
-                            XCTAssertNotNil(jsonDict[@"Host"]);
-                            XCTAssertNotNil(jsonDict[@"User-Agent"]);
+                            XCTAssertNotNil(responseDict);
+                            XCTAssertNotNil(responseDict[@"Host"]);
+                            XCTAssertNotNil(responseDict[@"User-Agent"]);
                             
                         }
                         
@@ -144,13 +144,13 @@
                              }
                              
                              if (data != nil) {
-                                 NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                 NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data
                                                                                           options:kNilOptions
                                                                                             error:nil];
-                                 XCTAssertNotNil(jsonDict);
-                                 XCTAssertNotNil(jsonDict[@"Host"]);
-                                 XCTAssertNotNil(jsonDict[@"Content-Type"]);
-                                 XCTAssertEqualObjects(jsonDict[@"Content-Type"],@"application/json");
+                                 XCTAssertNotNil(responseDict);
+                                 XCTAssertNotNil(responseDict[@"Host"]);
+                                 XCTAssertNotNil(responseDict[@"Content-Type"]);
+                                 XCTAssertEqualObjects(responseDict[@"Content-Type"],@"application/json");
                              }
                              
                              [expectation fulfill];
@@ -191,13 +191,13 @@
                                      }
                                      
                                      if (data != nil) {
-                                         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                         NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data
                                                                                                   options:kNilOptions
                                                                                                     error:nil];
-                                         XCTAssertNotNil(jsonDict);
-                                         XCTAssertNotNil(jsonDict[@"Host"]);
-                                         XCTAssertNotNil(jsonDict[@"Content-Type"]);
-                                         XCTAssertEqualObjects(@"application/x-www-form-urlencoded",jsonDict[@"Content-Type"]);
+                                         XCTAssertNotNil(responseDict);
+                                         XCTAssertNotNil(responseDict[@"Host"]);
+                                         XCTAssertNotNil(responseDict[@"Content-Type"]);
+                                         XCTAssertEqualObjects(@"application/x-www-form-urlencoded",responseDict[@"Content-Type"]);
                                          
                                      }
                                      

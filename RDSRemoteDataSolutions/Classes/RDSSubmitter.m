@@ -3,11 +3,15 @@
 #import "RDSSubmitter.h"
 // Components
 #import "RDSNetworkConnector.h"
+// Helpers
+#import "RDSHelper.h"
 // Categories
 #import "NSError+RDSErrors.h"
 
+
 @interface RDSSubmitter ()
 @property (strong,nonatomic,readwrite) id<RDSNetworkConnectorInterface> networkConnector;
+@property (strong,nonatomic) RDSHelper *helper;
 @end
 
 @implementation RDSSubmitter
@@ -63,16 +67,24 @@
                                     completion:completionBlock];
         
     }else{
-        
-        if ([submission parameters] == nil) {
+        NSDictionary *params;
+        if ([submission respondsToSelector:@selector(parameters)]) {
+            params = [submission parameters];
+        }
+        if (params == nil) {
             error = [NSError rds_submissionParametersIsNil];
             completionBlock(nil,nil,error);
             return;
         }
+        
+        NSString *HTTPMethod;
+        if ([submission respondsToSelector:@selector(HTTPMethod)]) {
+            HTTPMethod = [submission HTTPMethod];
+        }
 
         if ([submission submissionContentType] == RDSSubmissionContentTypeJSONData) {
             
-            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[submission parameters]
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params
                                                                options:kNilOptions
                                                                  error:&error];
             if (jsonData == nil) {
@@ -81,12 +93,17 @@
             }
             [self.networkConnector dataTaskWithJSONData:jsonData
                                                     URL:[submission destinationURL]
-                                             HTTPMethod:[submission HTTPMethod]
+                                             HTTPMethod:HTTPMethod
                                              completion:completionBlock];
 
             
         }else if ([submission submissionContentType] == RDSSubmissionContentTypeWWWURLEncodedString){
             
+            NSString *encodedString = [self.helper wwwFormURLEncodedStringFromParameters:params];
+            [self.networkConnector dataTaskWithURLEncodedString:encodedString
+                                                            URL:[submission destinationURL]
+                                                     HTTPMethod:HTTPMethod
+                                                     completion:completionBlock];
             
         }
     }
@@ -116,7 +133,12 @@
 //--------------------------------------------------------
 #pragma mark - Lazy Load
 //--------------------------------------------------------
-
+-(RDSHelper *)helper{
+    if (!_helper) {
+        _helper = [RDSHelper helper];
+    }
+    return _helper;
+}
 
 
 

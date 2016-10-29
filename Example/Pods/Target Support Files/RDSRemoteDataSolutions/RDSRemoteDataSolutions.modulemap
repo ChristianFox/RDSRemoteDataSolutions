@@ -1,0 +1,6 @@
+framework module RDSRemoteDataSolutions {
+  umbrella header "RDSRemoteDataSolutions-umbrella.h"
+
+  export *
+  module * { export * }
+}
