@@ -1,28 +1,15 @@
 
 
-
-#import "RDSNetworkConnector.h"
+#import "MOCKNetworkConnector.h"
 // Cocoa Categories
 #import "NSError+RDSErrors.h"
 
-@interface RDSNetworkConnector ()
-@property (strong,nonatomic) NSURLSession *session;
-@end
-
-
-@implementation RDSNetworkConnector
+@implementation MOCKNetworkConnector
 
 
 //======================================================
 #pragma mark - ** Public Methods **
 //======================================================
-//--------------------------------------------------------
-#pragma mark - Initilisers
-//--------------------------------------------------------
-+(instancetype)networkConnector{
-    RDSNetworkConnector *connector = [[self alloc]init];
-    return connector;
-}
 
 //--------------------------------------------------------
 #pragma mark - Submit
@@ -42,13 +29,12 @@
     }
     
     // ## Passed Defenses
-    [[self.session dataTaskWithURL:url
-                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                     
-                     completionBlock(data,response,error);
-                     
-                 }]resume];
-    
+    NSData *data = [[url absoluteString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc]initWithURL:url
+                                                             statusCode:200
+                                                            HTTPVersion:@""
+                                                           headerFields:nil];
+    completionBlock(data,response,error);
     
 }
 
@@ -79,11 +65,12 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
-    [[self.session dataTaskWithRequest:request
-                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                         completionBlock(data,response,error);
-                         
-                     }]resume];
+    NSData *data = jsonData;
+    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc]initWithURL:url
+                                                             statusCode:200
+                                                            HTTPVersion:@""
+                                                           headerFields:request.allHTTPHeaderFields];
+    completionBlock(data,response,error);
 }
 
 -(void)dataTaskWithURLEncodedString:(NSString *)urlEncodedString
@@ -112,58 +99,14 @@
     request.HTTPBody = [urlEncodedString dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Accept"];
-
     
-    [[self.session dataTaskWithRequest:request
-                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                         completionBlock(data,response,error);
-                         
-                     }]resume];
+    NSData *data = request.HTTPBody;
+    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc]initWithURL:url
+                                                             statusCode:200
+                                                            HTTPVersion:@""
+                                                           headerFields:request.allHTTPHeaderFields];
+    completionBlock(data,response,error);
 }
-
-
-
-//======================================================
-#pragma mark - ** Inherited Methods **
-//======================================================
-//--------------------------------------------------------
-#pragma mark - NSObject
-//--------------------------------------------------------
--(void)dealloc{
-    [self.session finishTasksAndInvalidate];
-}
-
-
-
-
-//======================================================
-#pragma mark - ** Protocol Methods **
-//======================================================
-
-
-
-
-//======================================================
-#pragma mark - ** Private Methods **
-//======================================================
-
-
-//--------------------------------------------------------
-#pragma mark - Lazy Load
-//--------------------------------------------------------
-//--------------------------------------------------------
--(NSURLSession *)session{
-    if (!_session) {
-        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
-        _session = session;
-    }
-    return _session;
-}
-
-//--------------------------------------------------------
-#pragma mark - Dealloc
-//--------------------------------------------------------
 
 
 @end

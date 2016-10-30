@@ -179,7 +179,7 @@
 #pragma mark - Attributed String
 //--------------------------------------------------------
 
--(NSAttributedString *)kfx_attributeStringWithAttributes:(NSDictionary *)attributes{
+-(NSAttributedString *)kfx_attributedStringWithAttributes:(NSDictionary *)attributes{
 	
 	NSAttributedString *attributedString = [[NSAttributedString alloc]initWithString:self
 																		  attributes:attributes];

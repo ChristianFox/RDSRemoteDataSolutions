@@ -1,24 +1,20 @@
 
 
-
 #import <Foundation/Foundation.h>
 // Protocols
 #import "RDSNetworkConnectorInterface.h"
 #import "RDSSubmissionInterface.h"
-// Constants
-#import "RDSDefinitions.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface RDSSubmitter : NSObject
-
-@property (strong,nonatomic,readonly) id<RDSNetworkConnectorInterface> networkConnector;
+@interface RDSSubmissionStation : NSObject
 
 //--------------------------------------------------------
 #pragma mark - Initilisers
 //--------------------------------------------------------
 -(instancetype)init NS_UNAVAILABLE;
-+(instancetype)defaultSubmitter;
-+(instancetype)submitterWithNetworkConnector:(id<RDSNetworkConnectorInterface>)networkConnector;
++(instancetype)defaultSubmissionStation;
++(instancetype)submissionStationWithNetworkConnector:(id<RDSNetworkConnectorInterface>)networkConnector;
+
 
 //--------------------------------------------------------
 #pragma mark - Submission

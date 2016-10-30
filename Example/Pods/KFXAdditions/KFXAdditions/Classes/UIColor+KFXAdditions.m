@@ -159,6 +159,339 @@
 }
 
 
+//======================================================
+#pragma mark - ** Colours **
+//======================================================
+
++(instancetype)kfx_pinkColour{
+    UIColor *aColor = [UIColor colorWithHue:0.889 saturation:0.497 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
+#pragma mark - Highlight Markers
+/* Based on the Marker colours in Scrivener */
++(instancetype)kfx_yellowHighlightColour{
+    UIColor *aColor = [UIColor colorWithHue:0.191 saturation:0.690 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_orangeHighlightColour{
+    UIColor *aColor = [UIColor colorWithHue:0.111 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_pinkHighlightColour{
+    UIColor *aColor = [UIColor colorWithHue:0.918 saturation:0.500 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_greenHighlightColour{
+    UIColor *aColor = [UIColor colorWithHue:0.308 saturation:0.590 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_blueHighlightColour{
+    UIColor *aColor = [UIColor colorWithHue:0.500 saturation:0.440 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
+#pragma mark - System Colours
++(instancetype)kfx_iOS7BlueColour{
+    UIColor *aColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+    return aColor;
+}
+
++(instancetype)kfx_scrollViewTexturedBackgroundColour{
+    UIColor *aColor = [UIColor colorWithHue:0.629 saturation:0.069 brightness:0.548 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_viewFlipsideBackgroundColour{
+    UIColor *aColor = [UIColor colorWithHue:0.596 saturation:0.139 brightness:0.188 alpha:1.000];
+    return aColor;
+}
+
+
+#pragma mark - Crayons
+/* Based on Crayons in OSX color picker */
++(instancetype)kfx_cayenneColour{
+    UIColor *aColor = [UIColor colorWithHue:1.000 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_asparagusColour{
+    UIColor *aColor = [UIColor colorWithHue:0.167 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_cloverColour{
+    UIColor *aColor = [UIColor colorWithHue:0.333 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_tealColour{
+    UIColor *aColor = [UIColor colorWithHue:0.500 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_midnightColour{
+    UIColor *aColor = [UIColor colorWithHue:0.667 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_plumColour{
+    UIColor *aColor = [UIColor colorWithHue:0.833 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_tinColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.498 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_nickelColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_mochaColour{
+    UIColor *aColor = [UIColor colorWithHue:0.083 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_fernColour{
+    UIColor *aColor = [UIColor colorWithHue:0.250 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_mossColour{
+    UIColor *aColor = [UIColor colorWithHue:0.417 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_oceanColour{
+    UIColor *aColor = [UIColor colorWithHue:0.583 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_eggplantColour{
+    UIColor *aColor = [UIColor colorWithHue:0.750 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_maroonColour{
+    UIColor *aColor = [UIColor colorWithHue:0.917 saturation:1.000 brightness:0.502 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_steelColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.400 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_aluminumColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.600 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_maraschinoColour{
+    UIColor *aColor = [UIColor colorWithHue:1.000 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_lemonColour{
+    UIColor *aColor = [UIColor colorWithHue:0.167 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_springColour{
+    UIColor *aColor = [UIColor colorWithHue:0.333 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_turquoiseColour{
+    UIColor *aColor = [UIColor colorWithHue:0.500 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_blueberryColour{
+    UIColor *aColor = [UIColor colorWithHue:0.667 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_magentaColour{
+    UIColor *aColor = [UIColor colorWithHue:0.833 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_ironColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.298 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_magnesiumColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.702 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_tangerineColour{
+    UIColor *aColor = [UIColor colorWithHue:0.084 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_limeColour{
+    UIColor *aColor = [UIColor colorWithHue:0.250 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_seaFoamColour{
+    UIColor *aColor = [UIColor colorWithHue:0.417 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_aquaColour{
+    UIColor *aColor = [UIColor colorWithHue:0.583 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_grapeColour{
+    UIColor *aColor = [UIColor colorWithHue:0.750 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_strawberryColour{
+    UIColor *aColor = [UIColor colorWithHue:0.916 saturation:1.000 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_tungstenColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.200 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_silverColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.800 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_salmonColour{
+    UIColor *aColor = [UIColor colorWithHue:1.000 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_bananaColour{
+    UIColor *aColor = [UIColor colorWithHue:0.167 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_floraColour{
+    UIColor *aColor = [UIColor colorWithHue:0.333 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_iceColour{
+    UIColor *aColor = [UIColor colorWithHue:0.500 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_orchidColour{
+    UIColor *aColor = [UIColor colorWithHue:0.667 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_bubblegumColour{
+    UIColor *aColor = [UIColor colorWithHue:0.833 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_leadColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.098 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_mercuryColour{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.000 brightness:0.902 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_cantaloupeColour{
+    UIColor *aColor = [UIColor colorWithHue:0.111 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_honeydewColour{
+    UIColor *aColor = [UIColor colorWithHue:0.222 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_spindriftColour{
+    UIColor *aColor = [UIColor colorWithHue:0.444 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_skyColour{
+    UIColor *aColor = [UIColor colorWithHue:0.556 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_lavenderColour{
+    UIColor *aColor = [UIColor colorWithHue:0.778 saturation:0.600 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_carnationColour{
+    UIColor *aColor = [UIColor colorWithHue:0.889 saturation:0.565 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
++(instancetype)kfx_licoriceColour{
+    UIColor *aColor = [UIColor colorWithWhite:0.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_snowColour{
+    UIColor *aColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+    return aColor;
+}
+
+
+#pragma mark - Pastels
+/* Pastels. Brightness == 100%, Saturation == 16% & varied Hue */
++(instancetype)kfx_pastelRed{
+    UIColor *aColor = [UIColor colorWithHue:0.000 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelOrange{
+    UIColor *aColor = [UIColor colorWithHue:0.061 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelYellow{
+    UIColor *aColor = [UIColor colorWithHue:0.125 saturation:0.160 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelGreenLight{
+    UIColor *aColor = [UIColor colorWithHue:0.250 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelGreenDark{
+    UIColor *aColor = [UIColor colorWithHue:0.311 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelBlueLight{
+    UIColor *aColor = [UIColor colorWithHue:0.500 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelBlueDark{
+    UIColor *aColor = [UIColor colorWithHue:0.561 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelPurple{
+    UIColor *aColor = [UIColor colorWithHue:0.686 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
++(instancetype)kfx_pastelPink{
+    UIColor *aColor = [UIColor colorWithHue:0.936 saturation:0.162 brightness:1.000 alpha:1.000];
+    return aColor;
+}
+
 
 
 

@@ -3,6 +3,8 @@
 #import "NSArray+KFXAdditions.h"
 #import "NSDate+KFXAdditions.h"
 #import "NSFileManager+KFXDirectoryLocations.h"
+#import "NSKeyedArchiver+KFXAdditions.h"
+#import "NSKeyedUnarchiver+KFXAdditions.h"
 #import "NSMutableArray+KFXAdditions.h"
 #import "NSMutableDictionary+KFXAdditions.h"
 #import "NSMutableSet+KFXAdditions.h"

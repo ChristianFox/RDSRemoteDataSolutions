@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIImage *)kfx_croppedImage:(CGRect)bounds;
 
+
 /**
  *  If transparentBorder is non-zero, a transparent border of the given size will be added around the edges of the thumbnail. (Adding a transparent border of at least one pixel in size has the side-effect of antialiasing the edges of the image when rotating it using Core Animation.)
  *
@@ -25,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
                cornerRadius:(NSUInteger)cornerRadius
        interpolationQuality:(CGInterpolationQuality)quality;
 
+
 /**
  *  The image will be scaled disproportionately if necessary to fit the bounds specified by the parameter
  *
@@ -32,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIImage *)kfx_resizedImage:(CGSize)newSize
      interpolationQuality:(CGInterpolationQuality)quality;
+
 
 /**
  *  Resizes the image according to the given content mode, taking into account the image's orientation & preserving aspect ratio. Essentially resize + crop.
@@ -65,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a copy of this image with rounded corners
  *
- *  @param cornerSize <#cornerSize description#>
+ *  @param cornerSize Size of the corners
  *  @param borderSize If borderSize is non-zero, a transparent border of the given size will also be added
  *
  *  @return a copy of this image with rounded corners

@@ -14,6 +14,7 @@
 #import <RDSRemoteDataSolutions/RDSDefinitions.h>
 // Mocks
 #import "MOCKSubmission.h"
+#import "MOCKNetworkConnector.h"
 
 @interface RDSSubmitterTests : XCTestCase
 
@@ -51,101 +52,10 @@
     XCTAssertEqualObjects(submitter.networkConnector, connector);
 }
 
+
 //--------------------------------------------------------
 #pragma mark - Test Submissions that are invalid
 //--------------------------------------------------------
--(void)testSubmitSubmission_WithNilSubmission_ShouldCompleteWithSubmissionIsNilError{
-    
-    // Expect
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Should have completed with error"];
-    
-    // GIVEN
-    RDSSubmitter *submitter = [RDSSubmitter defaultSubmitter];
-    MOCKSubmission *submission = nil;
-    
-    // WHEN
-    [submitter submitSubmission:submission
-                 withCompletion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    
-                     // THEN
-                     XCTAssertNotNil(error);
-                     XCTAssertEqual(error.code, RDSErrorSubmissionIsNil);
-                     XCTAssertNil(data);
-                     XCTAssertNil(response);
-                     [expectation fulfill];
-                 }];
-    
-    // Wait
-    [self waitForExpectationsWithTimeout:5.0f handler:^(NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"### ERROR ### : %@",error.localizedDescription);
-        }
-    }];
-}
-
-
--(void)testSubmitSubmission_WithSubmissionThatHasNilURL_ShouldCompleteWithSubmissionURLIsNilError{
-    
-    // Expect
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Should have completed with error"];
-    
-    // GIVEN
-    RDSSubmitter *submitter = [RDSSubmitter defaultSubmitter];
-    MOCKSubmission *submission = [[MOCKSubmission alloc]init];
-    submission.destinationURL = nil;
-    
-    // WHEN
-    [submitter submitSubmission:submission
-                 withCompletion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                     
-                     // THEN
-                     XCTAssertNotNil(error);
-                     XCTAssertEqual(error.code, RDSErrorSubmissionURLIsNil);
-                     XCTAssertNil(data);
-                     XCTAssertNil(response);
-                     [expectation fulfill];
-                 }];
-    
-    // Wait
-    [self waitForExpectationsWithTimeout:5.0f handler:^(NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"### ERROR ### : %@",error.localizedDescription);
-        }
-    }];
-}
-
--(void)testSubmitSubmission_WithSubmissionThatHasUndefinedContentType_ShouldCompleteWithSubmissionContentTypeIsUndefinedError{
-    
-    // Expect
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Should have completed with error"];
-    
-    // GIVEN
-    RDSSubmitter *submitter = [RDSSubmitter defaultSubmitter];
-    MOCKSubmission *submission = [[MOCKSubmission alloc]init];
-    submission.destinationURL = [NSURL URLWithString:@"http://www.google.com"];
-    submission.submissionContentType = RDSSubmissionContentTypeUndefined;
-    
-    // WHEN
-    [submitter submitSubmission:submission
-                 withCompletion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                     
-                     // THEN
-                     XCTAssertNotNil(error);
-                     XCTAssertEqual(error.code, RDSErrorSubmissionContentTypeIsUndefined);
-                     XCTAssertNil(data);
-                     XCTAssertNil(response);
-                     [expectation fulfill];
-                 }];
-    
-    // Wait
-    [self waitForExpectationsWithTimeout:5.0f handler:^(NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"### ERROR ### : %@",error.localizedDescription);
-        }
-    }];
-}
-
-
 -(void)testSubmitSubmission_WithSubmissionThatHasNilParameters_ShouldCompleteWithSubmissionParametersIsNilError{
     
     // Expect
@@ -188,9 +98,10 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"Should have completed with error"];
     
     // GIVEN
-    RDSSubmitter *submitter = [RDSSubmitter defaultSubmitter];
+    MOCKNetworkConnector *connector = [MOCKNetworkConnector networkConnector];
+    RDSSubmitter *submitter = [RDSSubmitter submitterWithNetworkConnector:connector];
     MOCKSubmission *submission = [[MOCKSubmission alloc]init];
-    submission.destinationURL = [NSURL URLWithString:@"http://headers.jsontest.com/"];
+    submission.destinationURL = [NSURL URLWithString:@"https://www.mockaroundtheclock.com/"];
     submission.submissionContentType = RDSSubmissionContentTypeNone;
     submission.parameters = nil;
     
@@ -208,12 +119,8 @@
                      }
                      
                      if (data != nil) {
-                         NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data
-                                                                                  options:kNilOptions
-                                                                                    error:nil];
-                         XCTAssertNotNil(responseDict);
-                         XCTAssertNotNil(responseDict[@"Host"]);
-                         XCTAssertNotNil(responseDict[@"User-Agent"]);
+                         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                         XCTAssertEqualObjects(dataString, [[submission destinationURL] absoluteString]);
                      }
                      
                      [expectation fulfill];
@@ -233,9 +140,10 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"Should have completed with error"];
     
     // GIVEN
-    RDSSubmitter *submitter = [RDSSubmitter defaultSubmitter];
+    MOCKNetworkConnector *connector = [MOCKNetworkConnector networkConnector];
+    RDSSubmitter *submitter = [RDSSubmitter submitterWithNetworkConnector:connector];
     MOCKSubmission *submission = [[MOCKSubmission alloc]init];
-    submission.destinationURL = [NSURL URLWithString:@"http://httpbin.org/post"];
+    submission.destinationURL = [NSURL URLWithString:@"https://www.mockaroundtheclock.com/"];
     submission.submissionContentType = RDSSubmissionContentTypeJSONData;
     submission.parameters = @{@"words":@[@"one",@"two"],@"numbers":@[@1,@2,@3]};
     submission.HTTPMethod = @"POST";
@@ -258,9 +166,8 @@
                                                                                       options:kNilOptions
                                                                                         error:nil];
                          XCTAssertNotNil(responseDict);
-                         XCTAssertEqualObjects(responseDict[@"json"], [submission parameters]);
-                         XCTAssertEqualObjects(responseDict[@"headers"][@"Content-Type"],@"application/json");
-                         
+                         XCTAssertEqualObjects(responseDict, [submission parameters]);
+
                      }
                      
                      [expectation fulfill];
@@ -280,9 +187,10 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"Should have completed with error"];
     
     // GIVEN
-    RDSSubmitter *submitter = [RDSSubmitter defaultSubmitter];
+    MOCKNetworkConnector *connector = [MOCKNetworkConnector networkConnector];
+    RDSSubmitter *submitter = [RDSSubmitter submitterWithNetworkConnector:connector];
     MOCKSubmission *submission = [[MOCKSubmission alloc]init];
-    submission.destinationURL = [NSURL URLWithString:@"http://httpbin.org/post"];
+    submission.destinationURL = [NSURL URLWithString:@"https://www.mockaroundtheclock.com/"];
     submission.submissionContentType = RDSSubmissionContentTypeWWWURLEncodedString;
     submission.parameters = @{@"key1":@"value1",@"key2":@"value2",@"key3":@3};
     submission.HTTPMethod = @"POST";
@@ -301,16 +209,10 @@
                      }
                      
                      if (data != nil) {
-                         NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data
-                                                                                      options:kNilOptions
-                                                                                        error:nil];
-                         XCTAssertNotNil(responseDict);
-                         XCTAssertNotNil(responseDict[@"headers"]);
-                         XCTAssertNotNil(responseDict[@"form"]);
-                         XCTAssertEqualObjects(responseDict[@"form"][@"key1"], @"value1");
-                         XCTAssertEqualObjects(responseDict[@"form"][@"key2"], @"value2");
-                         XCTAssertEqualObjects(responseDict[@"form"][@"key3"], @"3");
-                         XCTAssertEqualObjects(@"application/x-www-form-urlencoded",responseDict[@"headers"][@"Content-Type"]);
+                         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                         XCTAssertTrue([dataString containsString:submission.parameters[@"key1"]]);
+                         XCTAssertTrue([dataString containsString:submission.parameters[@"key2"]]);
+                         XCTAssertTrue([dataString containsString:@"3"]);
                      }
                      
                      [expectation fulfill];

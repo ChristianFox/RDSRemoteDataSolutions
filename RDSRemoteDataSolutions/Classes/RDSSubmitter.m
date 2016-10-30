@@ -39,27 +39,14 @@
     return submitter;
 }
 
+
 //--------------------------------------------------------
 #pragma mark - Submissions
 //--------------------------------------------------------
 -(void)submitSubmission:(id<RDSSubmissionInterface>)submission
          withCompletion:(RDSNetworkResponseCompletionBlock)completionBlock{
     
-    // ## Defensive
-    NSError *error;
-    if (submission == nil) {
-        error = [NSError rds_submissionIsNilError];
-    }else if ([submission destinationURL] == nil){
-        error = [NSError rds_submissionURLIsNilError];
-    }else if ([submission submissionContentType] == RDSSubmissionContentTypeUndefined){
-        error = [NSError rds_SubmissionContentTypeIsUndefined];
-    }
-    
-    if (error != nil) {
-        completionBlock(nil,nil,error);
-        return;
-    }
-    
+
     // ## Passed Defenses
     if ([submission submissionContentType] == RDSSubmissionContentTypeNone) {
         
@@ -71,6 +58,7 @@
         if ([submission respondsToSelector:@selector(parameters)]) {
             params = [submission parameters];
         }
+        NSError *error;
         if (params == nil) {
             error = [NSError rds_submissionParametersIsNil];
             completionBlock(nil,nil,error);

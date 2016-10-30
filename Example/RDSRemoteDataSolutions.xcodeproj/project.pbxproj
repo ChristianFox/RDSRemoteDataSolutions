@@ -27,6 +27,12 @@
 		DBC7598D1DC4BEBB00CDC97F /* MOCKSubmission.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */; };
 		DBC759A01DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */; };
 		DBC759CE1DC548C200CDC97F /* RDSHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */; };
+		DBC759D41DC564C000CDC97F /* RDSSubmissionStationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759D31DC564C000CDC97F /* RDSSubmissionStationTests.m */; };
+		DBC759D71DC564E200CDC97F /* MOCKNetworkConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759D61DC564E200CDC97F /* MOCKNetworkConnector.m */; };
+		DBC759DD1DC5C73700CDC97F /* RDSSchedulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759DC1DC5C73700CDC97F /* RDSSchedulerTests.m */; };
+		DBC759E01DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759DF1DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m */; };
+		DBC759E61DC62D0200CDC97F /* RDSResubmissionOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */; };
+		DBC759E91DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,15 @@
 		DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKSubmission.m; sourceTree = "<group>"; };
 		DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSNetworkConnectorLiveTests.m; sourceTree = "<group>"; };
 		DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSHelperTests.m; sourceTree = "<group>"; };
+		DBC759D31DC564C000CDC97F /* RDSSubmissionStationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSSubmissionStationTests.m; sourceTree = "<group>"; };
+		DBC759D51DC564E200CDC97F /* MOCKNetworkConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKNetworkConnector.h; sourceTree = "<group>"; };
+		DBC759D61DC564E200CDC97F /* MOCKNetworkConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKNetworkConnector.m; sourceTree = "<group>"; };
+		DBC759DC1DC5C73700CDC97F /* RDSSchedulerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSSchedulerTests.m; sourceTree = "<group>"; };
+		DBC759DE1DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKNetworkConnectorWithFailingNetwork.h; sourceTree = "<group>"; };
+		DBC759DF1DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKNetworkConnectorWithFailingNetwork.m; sourceTree = "<group>"; };
+		DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSResubmissionOperationTests.m; sourceTree = "<group>"; };
+		DBC759E71DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKSubmitterAlwaysReportsSuccess.h; sourceTree = "<group>"; };
+		DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKSubmitterAlwaysReportsSuccess.m; sourceTree = "<group>"; };
 		E46A485E89E46EB6F0EF8FE5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +194,10 @@
 				DBC7597E1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m */,
 				DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */,
 				DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */,
+				DBC759D31DC564C000CDC97F /* RDSSubmissionStationTests.m */,
 				DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */,
+				DBC759DC1DC5C73700CDC97F /* RDSSchedulerTests.m */,
+				DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */,
 				DBC7598A1DC4BEA700CDC97F /* Mocks */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -211,6 +229,12 @@
 			children = (
 				DBC7598B1DC4BEBB00CDC97F /* MOCKSubmission.h */,
 				DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */,
+				DBC759D51DC564E200CDC97F /* MOCKNetworkConnector.h */,
+				DBC759D61DC564E200CDC97F /* MOCKNetworkConnector.m */,
+				DBC759DE1DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.h */,
+				DBC759DF1DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m */,
+				DBC759E71DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.h */,
+				DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -428,8 +452,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC759D71DC564E200CDC97F /* MOCKNetworkConnector.m in Sources */,
+				DBC759E01DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m in Sources */,
 				6003F59E195388D20070C39A /* DEMOAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* DEMOViewController.m in Sources */,
+				DBC759E91DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,11 +465,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC759D41DC564C000CDC97F /* RDSSubmissionStationTests.m in Sources */,
 				DBC7598D1DC4BEBB00CDC97F /* MOCKSubmission.m in Sources */,
+				DBC759E61DC62D0200CDC97F /* RDSResubmissionOperationTests.m in Sources */,
 				DBC7597F1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m in Sources */,
 				DBC759A01DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m in Sources */,
 				DBC759851DC4BAAC00CDC97F /* RDSSubmitterTests.m in Sources */,
 				DBC759CE1DC548C200CDC97F /* RDSHelperTests.m in Sources */,
+				DBC759DD1DC5C73700CDC97F /* RDSSchedulerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

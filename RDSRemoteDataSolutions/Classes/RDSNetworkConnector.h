@@ -6,6 +6,9 @@
 
 @interface RDSNetworkConnector : NSObject <RDSNetworkConnectorInterface>
 
+//--------------------------------------------------------
+#pragma mark - Initilisers
+//--------------------------------------------------------
 +(instancetype)networkConnector;
 
 @end

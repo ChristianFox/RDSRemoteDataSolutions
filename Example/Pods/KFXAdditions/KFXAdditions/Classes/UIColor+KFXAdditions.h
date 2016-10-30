@@ -102,6 +102,96 @@ NS_ASSUME_NONNULL_BEGIN
                                       alpha:(CGFloat)alpha;
 
 
+//======================================================
+#pragma mark - ** Colours **
+//======================================================
+/* Pink becuase there is no pink by default. */
++(instancetype)kfx_pinkColour;
+
+#pragma mark Highlight Markers
+/* Based on the Marker colours in Scrivener */
++(instancetype)kfx_yellowHighlightColour;
++(instancetype)kfx_orangeHighlightColour;
++(instancetype)kfx_pinkHighlightColour;
++(instancetype)kfx_greenHighlightColour;
++(instancetype)kfx_blueHighlightColour;
+
+#pragma mark System Colours
++(instancetype)kfx_iOS7BlueColour;
++(instancetype)kfx_scrollViewTexturedBackgroundColour;
++(instancetype)kfx_viewFlipsideBackgroundColour;
+
+#pragma mark Pastels
+/* Pastels. Brightness == 100%, Saturation == 16% & varied Hue */
++(instancetype)kfx_pastelRed;
++(instancetype)kfx_pastelOrange;
++(instancetype)kfx_pastelYellow;
++(instancetype)kfx_pastelGreenLight;
++(instancetype)kfx_pastelGreenDark;
++(instancetype)kfx_pastelBlueLight;
++(instancetype)kfx_pastelBlueDark;
++(instancetype)kfx_pastelPurple;
++(instancetype)kfx_pastelPink;
+
+#pragma mark Crayons
+/* Based on Crayons in OSX color picker */
+// Foods
++(instancetype)kfx_cayenneColour;
++(instancetype)kfx_asparagusColour;
++(instancetype)kfx_plumColour;
++(instancetype)kfx_mochaColour;
++(instancetype)kfx_eggplantColour;
++(instancetype)kfx_lemonColour;
++(instancetype)kfx_blueberryColour;
++(instancetype)kfx_tangerineColour;
++(instancetype)kfx_limeColour;
++(instancetype)kfx_grapeColour;
++(instancetype)kfx_strawberryColour;
++(instancetype)kfx_salmonColour;
++(instancetype)kfx_bananaColour;
++(instancetype)kfx_bubblegumColour;
++(instancetype)kfx_cantaloupeColour;
++(instancetype)kfx_honeydewColour;
++(instancetype)kfx_licoriceColour;
+// Plants
++(instancetype)kfx_cloverColour;
++(instancetype)kfx_fernColour;
++(instancetype)kfx_mossColour;
++(instancetype)kfx_floraColour;
++(instancetype)kfx_orchidColour;
++(instancetype)kfx_lavenderColour;
++(instancetype)kfx_carnationColour;
+// Metals
++(instancetype)kfx_tinColour;
++(instancetype)kfx_nickelColour;
++(instancetype)kfx_steelColour;
++(instancetype)kfx_aluminumColour;
++(instancetype)kfx_ironColour;
++(instancetype)kfx_magnesiumColour;
++(instancetype)kfx_tungstenColour;
++(instancetype)kfx_silverColour;
++(instancetype)kfx_leadColour;
++(instancetype)kfx_mercuryColour;
+// Watery
++(instancetype)kfx_oceanColour;
++(instancetype)kfx_seaFoamColour;
++(instancetype)kfx_aquaColour;
++(instancetype)kfx_iceColour;
++(instancetype)kfx_snowColour;
+// misc
++(instancetype)kfx_tealColour;
++(instancetype)kfx_maroonColour;
++(instancetype)kfx_turquoiseColour;
++(instancetype)kfx_magentaColour;
++(instancetype)kfx_midnightColour;
++(instancetype)kfx_maraschinoColour;
++(instancetype)kfx_springColour;
++(instancetype)kfx_spindriftColour;
++(instancetype)kfx_skyColour;
+
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

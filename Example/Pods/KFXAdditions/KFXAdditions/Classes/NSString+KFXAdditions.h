@@ -11,7 +11,9 @@ typedef NS_OPTIONS(NSUInteger, KFXStringComponent) {
     KFXStringComponentSymbolsExtensive = 1 << 3,
 };
 
-NS_ASSUME_NONNULL_BEGIN@interface NSString (KFXAdditions)
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NSString (KFXAdditions)
 
 
 //======================================================
@@ -39,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN@interface NSString (KFXAdditions)
 //--------------------------------------------------------
 -(NSString*)kfx_stringByCapitalisingFirstLetter;
 -(NSString*)kfx_stringByAddingPercentEscapesUsingEncoding:(CFStringEncoding)encoding;
+
 /// Creates a new string and replaces any white space with a length greater than 1 with a single space. If the receiver does not contain any excessive white space it is returned
 -(NSString*)kfx_stringByRemovingExcessiveWhiteSpace;
 -(NSString*)kfx_stringByTrimmingWhiteSpaceAndNewLines;
@@ -46,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN@interface NSString (KFXAdditions)
 //--------------------------------------------------------
 #pragma mark - Attributed String
 //--------------------------------------------------------
--(NSAttributedString *)kfx_attributeStringWithAttributes:(NSDictionary *)attributes;
+-(NSAttributedString *)kfx_attributedStringWithAttributes:(NSDictionary *)attributes;
 
 
 @end
