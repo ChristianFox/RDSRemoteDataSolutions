@@ -30,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Initilisers
 //--------------------------------------------------------
 -(instancetype)init NS_UNAVAILABLE;
+/**
+ * @brief Convinience initiliser
+ * @param
+ * @param
+ * @return
+ * @since 0.4.0
+ **/
 +(instancetype)resubmissionOperationWithSubmissions:(NSArray<id<RDSSubmissionInterface>>*)submissions
                                           submitter:(RDSSubmitter*)submitter;
 

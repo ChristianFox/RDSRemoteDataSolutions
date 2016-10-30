@@ -17,12 +17,30 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Initilisers
 //--------------------------------------------------------
 -(instancetype)init NS_UNAVAILABLE;
+/**
+ * @brief
+ * @param
+ * @param
+ * @since 0.2.0
+ **/
 +(instancetype)defaultSubmitter;
+/**
+ * @brief
+ * @param
+ * @param
+ * @since 0.2.0
+ **/
 +(instancetype)submitterWithNetworkConnector:(id<RDSNetworkConnectorInterface>)networkConnector;
 
 //--------------------------------------------------------
 #pragma mark - Submission
 //--------------------------------------------------------
+/**
+ * @brief
+ * @param
+ * @param
+ * @since 0.2.0
+ **/
 -(void)submitSubmission:(id<RDSSubmissionInterface>)submission
          withCompletion:(RDSNetworkResponseCompletionBlock)completionBlock;
 

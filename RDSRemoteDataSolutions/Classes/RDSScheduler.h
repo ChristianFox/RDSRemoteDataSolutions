@@ -28,7 +28,21 @@ extern NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt;
 #pragma mark - Initilisers
 //--------------------------------------------------------
 -(instancetype)init NS_UNAVAILABLE;
+
+/**
+ * @brief
+ * @param
+ * @param
+ * @since 0.4.0
+ **/
 +(instancetype)defaultScheduler;
+
+/**
+ * @brief
+ * @param
+ * @param
+ * @since 0.4.0
+ **/
 +(instancetype)schedulerWithMinimumTimeBetweenSubmissionAttempts:(NSTimeInterval)minimum
                                       maximumTimeBetweenAttempts:(NSTimeInterval)maximum
                                  multiplierOfTimeBetweenAttempts:(NSTimeInterval)multiplier;
@@ -36,6 +50,12 @@ extern NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt;
 //--------------------------------------------------------
 #pragma mark - Queries
 //--------------------------------------------------------
+/**
+ * @brief
+ * @param
+ * @param
+ * @since 0.4.0
+ **/
 -(NSTimeInterval)timeIntervalTillNextSubmissionAttempt;
 
 
