@@ -157,9 +157,9 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
     
     BOOL success = NO;
     success = [NSKeyedArchiver kfx_archiveRootObject:self.pendingSubmissions
-                                     toDirectoryPath:[self pendingSubmissionsArchiveDirectoryPathWithError:&error]
+                                     toDirectoryPath:[self pendingSubmissionsArchiveDirectoryPathWithError:error]
                                         withFileName:kPendingSubmissionsArchiveFileName
-                                               error:&error];
+                                               error:error];
     return success;
     
 }
@@ -167,8 +167,7 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 -(NSString*)pendingSubmissionsArchiveDirectoryPathWithError:(NSError*__autoreleasing __nullable*)error{
     
     NSFileManager *fileMan = [NSFileManager defaultManager];
-    NSString *appSupportDir = [fileMan kfx_Library_ApplicationSupport];
-    NSString *archiveDir = [fileMan kfx_findOrCreateDirectory:appSupportDir
+    NSString *archiveDir = [fileMan kfx_findOrCreateDirectory:NSApplicationSupportDirectory
                                                      inDomain:NSUserDomainMask
                                           appendPathComponent:@"RDSArchives"
                                                         error:error];
