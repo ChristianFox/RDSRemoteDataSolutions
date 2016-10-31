@@ -34,6 +34,8 @@
 		DBC759E61DC62D0200CDC97F /* RDSResubmissionOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */; };
 		DBC759E91DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */; };
 		DBC759EB1DC6857F00CDC97F /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = DBC759EA1DC6857F00CDC97F /* CHANGELOG.md */; };
+		DBC759F51DC68B4000CDC97F /* RDSValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */; };
+		DBC759F81DC6A57600CDC97F /* DEMOLoggingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759F71DC6A57600CDC97F /* DEMOLoggingDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,9 @@
 		DBC759E71DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKSubmitterAlwaysReportsSuccess.h; sourceTree = "<group>"; };
 		DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKSubmitterAlwaysReportsSuccess.m; sourceTree = "<group>"; };
 		DBC759EA1DC6857F00CDC97F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = "../../../KFXLog - multiple versions/KFXLog/KFXLog/CHANGELOG.md"; sourceTree = "<group>"; };
+		DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSValidatorTests.m; sourceTree = "<group>"; };
+		DBC759F61DC6A57600CDC97F /* DEMOLoggingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOLoggingDelegate.h; sourceTree = "<group>"; };
+		DBC759F71DC6A57600CDC97F /* DEMOLoggingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOLoggingDelegate.m; sourceTree = "<group>"; };
 		E46A485E89E46EB6F0EF8FE5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +177,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* DEMOViewController.h */,
 				6003F5A6195388D20070C39A /* DEMOViewController.m */,
+				DBC759F61DC6A57600CDC97F /* DEMOLoggingDelegate.h */,
+				DBC759F71DC6A57600CDC97F /* DEMOLoggingDelegate.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -200,6 +207,7 @@
 				DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */,
 				DBC759DC1DC5C73700CDC97F /* RDSSchedulerTests.m */,
 				DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */,
+				DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */,
 				DBC7598A1DC4BEA700CDC97F /* Mocks */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -462,6 +470,7 @@
 				DBC759E91DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m in Sources */,
 				DBC759EB1DC6857F00CDC97F /* CHANGELOG.md in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				DBC759F81DC6A57600CDC97F /* DEMOLoggingDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +485,7 @@
 				DBC759A01DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m in Sources */,
 				DBC759851DC4BAAC00CDC97F /* RDSSubmitterTests.m in Sources */,
 				DBC759CE1DC548C200CDC97F /* RDSHelperTests.m in Sources */,
+				DBC759F51DC68B4000CDC97F /* RDSValidatorTests.m in Sources */,
 				DBC759DD1DC5C73700CDC97F /* RDSSchedulerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

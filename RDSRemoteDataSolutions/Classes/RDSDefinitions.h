@@ -21,6 +21,7 @@ typedef void(^RDSNetworkResponseCompletionBlock)(NSData * __nullable data, NSURL
 typedef NS_ENUM(NSInteger, RDSError) {
     RDSErrorUnknown,
     RDSErrorSubmissionIsNil,
+    RDSErrorSubmissionDoesNotConformToNSCoding,
     RDSErrorSubmissionURLIsNil,
     RDSErrorSubmissionContentTypeIsUndefined,
     RDSErrorSubmissionParametersIsNil,

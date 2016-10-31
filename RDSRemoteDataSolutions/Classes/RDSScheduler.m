@@ -98,6 +98,12 @@ NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 5.0;
                                                            selector:@selector(submissionTimerDidFire:)
                                                            userInfo:nil
                                                             repeats:NO];
+    // Log
+    if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]) {
+        
+        NSString *message = [NSString stringWithFormat:@"RDSScheduler submissionTimer has been reset to fire in %f seconds",self.timeIntervalBetweenSubmissionAttempts];
+        [self.loggingDelegate logInfo:message];
+    }
 }
 
 

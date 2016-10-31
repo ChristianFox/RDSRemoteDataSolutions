@@ -6,6 +6,7 @@
 @interface NSError (RDSErrors)
 
 +(instancetype)rds_submissionIsNilError;
++(instancetype)rds_submissionDoesNotConformToNSCoding;
 +(instancetype)rds_submissionURLIsNilError;
 +(instancetype)rds_submissionParametersIsNil;
 +(instancetype)rds_SubmissionContentTypeIsUndefined;

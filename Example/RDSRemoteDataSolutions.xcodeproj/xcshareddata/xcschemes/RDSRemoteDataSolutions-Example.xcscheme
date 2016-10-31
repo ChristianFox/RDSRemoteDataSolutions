@@ -37,6 +37,11 @@
                BlueprintName = "RDSRemoteDataSolutions_Tests"
                ReferencedContainer = "container:RDSRemoteDataSolutions.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "RDSNetworkConnectorLiveTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

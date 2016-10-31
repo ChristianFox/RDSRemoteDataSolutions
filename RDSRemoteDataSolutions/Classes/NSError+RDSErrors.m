@@ -10,12 +10,23 @@ static NSString *kErrorDomain = @"com.KFXTech.RDSRemoteDataSolutions";
 @implementation NSError (RDSErrors)
 
 +(instancetype)rds_submissionIsNilError{
+    
     NSString *message = NSLocalizedString(@"Can not submit the RDSSubmissionInterface conforming instance because it is nil", @"Can not submit the RDSSubmissionInterface conforming instance because it is nil");
     NSError *error = [self errorWithDomain:kErrorDomain
                                       code:RDSErrorSubmissionIsNil
                                   userInfo:@{NSLocalizedDescriptionKey:message}];
     return error;
     
+}
+
++(instancetype)rds_submissionDoesNotConformToNSCoding{
+    
+    NSString *message = NSLocalizedString(@"Submissions need to conform to NSCoding to be stored and scheduled for resubmission", @"Submissions need to conform to NSCoding to be stored and scheduled for resubmission");
+    NSError *error = [self errorWithDomain:kErrorDomain
+                                      code:RDSErrorSubmissionDoesNotConformToNSCoding
+                                  userInfo:@{NSLocalizedDescriptionKey:message}];
+    return error;
+
 }
 
 +(instancetype)rds_submissionURLIsNilError{
@@ -28,6 +39,7 @@ static NSString *kErrorDomain = @"com.KFXTech.RDSRemoteDataSolutions";
 }
 
 +(instancetype)rds_submissionParametersIsNil{
+    
     NSString *message = NSLocalizedString(@"The submission's parameters is nil, it must be defined so the submission can be completed", @"The submission's parameters is undefined, it must be defined so the submission can be completed");
     NSError *error = [self errorWithDomain:kErrorDomain
                                       code:RDSErrorSubmissionParametersIsNil
@@ -36,6 +48,7 @@ static NSString *kErrorDomain = @"com.KFXTech.RDSRemoteDataSolutions";
 }
 
 +(instancetype)rds_SubmissionContentTypeIsUndefined{
+    
     NSString *message = NSLocalizedString(@"The submission's submissionContentType is undefined, it must be defined so the submission can be completed", @"The submission's submissionContentType is undefined, it must be defined so the submission can be completed");
     NSError *error = [self errorWithDomain:kErrorDomain
                                       code:RDSErrorSubmissionContentTypeIsUndefined
@@ -45,6 +58,7 @@ static NSString *kErrorDomain = @"com.KFXTech.RDSRemoteDataSolutions";
 
 
 +(instancetype)rds_jsonDataIsNilError{
+    
     NSString *message = NSLocalizedString(@"jsonData is nil", @"jsonData is nil");
     NSError *error = [self errorWithDomain:kErrorDomain
                                       code:RDSErrorJSONDataIsNil
@@ -54,6 +68,7 @@ static NSString *kErrorDomain = @"com.KFXTech.RDSRemoteDataSolutions";
 }
 
 +(instancetype)rds_jsonDataLengthIsZeroError{
+    
     NSString *message = NSLocalizedString(@"jsonData length is 0", @"jsonData length is 0");
     NSError *error = [self errorWithDomain:kErrorDomain
                                       code:RDSErrorJSONDataLengthIsZero

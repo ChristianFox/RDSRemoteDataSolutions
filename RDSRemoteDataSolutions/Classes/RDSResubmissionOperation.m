@@ -81,11 +81,13 @@
 
                      self.submissionSuccesses++;
                      [self.delegate resubmissionOperation:self
-                          didSuccessfullySubmitSubmission:aSubmission];
+                          didSuccessfullySubmitSubmission:aSubmission
+                                                 withData:data
+                                                 response:response];
                  }else{
                      self.submissionFailures++;
                      if ([self.delegate respondsToSelector:@selector(resubmissionOperation:didFailToSubmitSubmission:)]) {
-                         [self.delegate resubmissionOperation:self didFailToSubmitSubmission:aSubmission];
+                         [self.delegate resubmissionOperation:self didFailToSubmitSubmission:aSubmission withError:error];
                      }
                  }
                  
@@ -100,6 +102,7 @@
                      [[NSNotificationCenter defaultCenter]postNotificationName:kRDSResubmissionProcessCompleteNOTIFICATION
                                                                         object:nil
                                                                       userInfo:@{kRDSResubmissionResultKEY:@(clearedAllSubmissions)}];
+                     [self.delegate resubmissionOperationDidFinish:self];
                      return;
                  }
              }];

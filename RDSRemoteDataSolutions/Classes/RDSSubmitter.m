@@ -3,6 +3,7 @@
 #import "RDSSubmitter.h"
 // Components
 #import "RDSNetworkConnector.h"
+#import "RDSValidator.h"
 // Helpers
 #import "RDSHelper.h"
 // Categories
@@ -16,6 +17,7 @@
 
 @implementation RDSSubmitter
 
+@synthesize validator = _validator;
 
 //======================================================
 #pragma mark - ** Public Methods **
@@ -98,6 +100,46 @@
     
     
 }
+
+
+
+//--------------------------------------------------------
+#pragma mark - Accessors
+//--------------------------------------------------------
+-(void)setLoggingDelegate:(id<RDSLoggingDelegate>)loggingDelegate{
+    @synchronized (_loggingDelegate) {
+        if (loggingDelegate != _loggingDelegate) {
+            _loggingDelegate = loggingDelegate;
+            if ([self.networkConnector respondsToSelector:@selector(setLoggingDelegate:)]) {
+                [self.networkConnector performSelector:@selector(setLoggingDelegate:) withObject:loggingDelegate];
+            }
+        }
+    }
+}
+
+-(void)setValidator:(RDSValidator *)validator{
+    @synchronized (_validator) {
+        if (validator != _validator) {
+            _validator = validator;
+            if ([self.networkConnector respondsToSelector:@selector(setValidator:)]) {
+                [self.networkConnector performSelector:@selector(setValidator:) withObject:validator];
+            }
+
+        }
+    }
+}
+
+-(RDSValidator *)validator{
+    RDSValidator *validator;
+    @synchronized (_validator) {
+        if (!_validator) {
+            _validator = [RDSValidator validator];
+        }
+        validator = _validator;
+    }
+    return validator;
+}
+
 
 
 

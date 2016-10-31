@@ -10,8 +10,10 @@
 #import "RDSScheduler.h"
 #import "RDSNetworkConnector.h"
 #import "RDSResubmissionOperation.h"
+#import "RDSValidator.h"
 // Cocoa Categories
 #import "NSError+RDSErrors.h"
+
 // Constants
 #import "RDSConstants.h"
 
@@ -30,6 +32,8 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 @end
 
 @implementation RDSSubmissionStation
+
+@synthesize validator = _validator;
 
 
 //======================================================
@@ -71,15 +75,11 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
        
         // ## Defensive
         NSError *error;
-        if (submission == nil) {
-            error = [NSError rds_submissionIsNilError];
-        }else if ([submission destinationURL] == nil){
-            error = [NSError rds_submissionURLIsNilError];
+        if (![self.validator validateSubmission:submission withError:&error]) {
+            completionBlock(nil,nil,error);
+            return;
         }else if ([submission submissionContentType] == RDSSubmissionContentTypeUndefined){
             error = [NSError rds_SubmissionContentTypeIsUndefined];
-        }
-        
-        if (error != nil) {
             completionBlock(nil,nil,error);
             return;
         }
@@ -107,6 +107,39 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 }
 
 
+//--------------------------------------------------------
+#pragma mark - Accessors
+//--------------------------------------------------------
+-(void)setLoggingDelegate:(id<RDSLoggingDelegate>)loggingDelegate{
+    @synchronized (_loggingDelegate) {
+        if (loggingDelegate != _loggingDelegate) {
+            _loggingDelegate = loggingDelegate;
+            self.submitter.loggingDelegate = loggingDelegate;
+            self.scheduler.loggingDelegate = loggingDelegate;
+        }
+    }
+}
+
+-(void)setValidator:(RDSValidator *)validator{
+    @synchronized (_validator) {
+        if (validator != _validator) {
+            _validator = validator;
+            self.submitter.validator = validator;
+        }
+    }
+}
+
+-(RDSValidator *)validator{
+    RDSValidator *validator;
+    @synchronized (_validator) {
+        if (!_validator) {
+            _validator = [RDSValidator validator];
+        }
+        validator = _validator;
+    }
+    return validator;
+}
+
 
 //======================================================
 #pragma mark - ** Inherited Methods **
@@ -126,12 +159,29 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 //--------------------------------------------------------
 #pragma mark - RDSResubmissionOperationDelegate
 //--------------------------------------------------------
--(void)resubmissionOperation:(RDSResubmissionOperation *)operation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission{
+-(void)resubmissionOperation:(RDSResubmissionOperation *)operation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission withData:(nonnull NSData *)data response:(nonnull NSURLResponse *)response{
     
     [self.pendingSubmissions removeObject:submission];
+    
+    if ([self.delegate respondsToSelector:@selector(submissionStation:didSuccessfullySubmitSubmission:)]) {
+        [self.delegate submissionStation:self didSuccessfullySubmitSubmission:submission withData:data response:response];
+    }
 }
 
+-(void)resubmissionOperation:(RDSResubmissionOperation *)operation didFailToSubmitSubmission:(id<RDSSubmissionInterface>)submission withError:(nonnull NSError *)error{
+    
+    if ([self.delegate respondsToSelector:@selector(submissionStation:didFailToSubmitSubmission:)]) {
+        [self.delegate submissionStation:self didFailToSubmitSubmission:submission withError:error];
+    }
+}
 
+-(void)resubmissionOperationDidFinish:(RDSResubmissionOperation *)operation{
+    
+    if ([self.delegate respondsToSelector:@selector(submissionStation:didCompleteResubmissionProcessWithSubmissionSuccesses:submissionFailures:)]){
+        [self.delegate submissionStation:self didCompleteResubmissionProcessWithSubmissionSuccesses:operation.submissionSuccesses submissionFailures:operation.submissionFailures];
+    }
+    
+}
 
 //======================================================
 #pragma mark - ** Private Methods **
@@ -200,8 +250,6 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
                                                 name:kRDSShouldAttemptResubmissionNOTIFICATION
                                               object:nil];
 }
-
-
 
 //--------------------------------------------------------
 #pragma mark - Lazy Load

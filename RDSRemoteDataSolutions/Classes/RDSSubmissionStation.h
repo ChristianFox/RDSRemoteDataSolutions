@@ -4,11 +4,30 @@
 // Protocols
 #import "RDSNetworkConnectorInterface.h"
 #import "RDSSubmissionInterface.h"
-
-
+#import "RDSLoggingDelegate.h"
+//
+@class RDSValidator;
 
 NS_ASSUME_NONNULL_BEGIN
+@class RDSSubmissionStation;
+@protocol RDSSubmissionStationDelegate <NSObject>
+
+@optional
+-(void)submissionStation:(RDSSubmissionStation*)submissionStation
+didCompleteResubmissionProcessWithSubmissionSuccesses:(NSUInteger)submissionSuccesses
+      submissionFailures:(NSUInteger)submissionFailures;
+-(void)submissionStation:(RDSSubmissionStation*)submissionStation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission
+withData:(NSData*)data response:(NSURLResponse*)response;
+-(void)submissionStation:(RDSSubmissionStation*)submissionStation didFailToSubmitSubmission:(id<RDSSubmissionInterface>)submission withError:(NSError*)error;
+
+@end
+
+
 @interface RDSSubmissionStation : NSObject
+
+@property (weak, atomic) id<RDSSubmissionStationDelegate> delegate;
+@property (weak, atomic) id<RDSLoggingDelegate> loggingDelegate;
+@property (strong, atomic) RDSValidator *validator;
 
 //--------------------------------------------------------
 #pragma mark - Initilisers

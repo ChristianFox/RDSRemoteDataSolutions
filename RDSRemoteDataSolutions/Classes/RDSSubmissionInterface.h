@@ -5,7 +5,7 @@
 #import "RDSDefinitions.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol RDSSubmissionInterface <NSObject>
+@protocol RDSSubmissionInterface <NSObject,NSCoding>
 
 @required
 /**
@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @since 0.3.0
  **/
 -(RDSSubmissionContentType)submissionContentType;
-
 
 
 @optional

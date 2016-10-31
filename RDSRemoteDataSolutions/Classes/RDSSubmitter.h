@@ -5,13 +5,18 @@
 // Protocols
 #import "RDSNetworkConnectorInterface.h"
 #import "RDSSubmissionInterface.h"
+#import "RDSLoggingDelegate.h"
 // Constants
 #import "RDSDefinitions.h"
+// Other
+@class RDSValidator;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface RDSSubmitter : NSObject
 
 @property (strong,nonatomic,readonly) id<RDSNetworkConnectorInterface> networkConnector;
+@property (weak, atomic) id<RDSLoggingDelegate> loggingDelegate;
+@property (strong, atomic) RDSValidator *validator;
 
 //--------------------------------------------------------
 #pragma mark - Initilisers

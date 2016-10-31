@@ -9,10 +9,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol RDSResubmissionOperationDelegate <NSObject>
 
--(void)resubmissionOperation:(RDSResubmissionOperation*)operation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission;
+-(void)resubmissionOperation:(RDSResubmissionOperation*)operation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission withData:(NSData*)data response:(NSURLResponse*)response;
 @optional
--(void)resubmissionOperation:(RDSResubmissionOperation*)operation didFailToSubmitSubmission:(id<RDSSubmissionInterface>)submission;
-
+-(void)resubmissionOperation:(RDSResubmissionOperation*)operation didFailToSubmitSubmission:(id<RDSSubmissionInterface>)submission withError:(NSError*)error;
+-(void)resubmissionOperationDidFinish:(RDSResubmissionOperation*)operation;
 @end
 
 

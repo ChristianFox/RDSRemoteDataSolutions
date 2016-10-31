@@ -2,6 +2,8 @@
 
 
 #import <Foundation/Foundation.h>
+// Protocols
+#import "RDSLoggingDelegate.h"
 
 extern NSTimeInterval const kDefaultMinimumTimeTillNextSubmissionAttempt;
 extern NSTimeInterval const kDefaultMaximumTimeTillNextSubmissionAttempt;
@@ -10,6 +12,8 @@ extern NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt;
 
 @interface RDSScheduler : NSObject
 
+
+@property (weak, atomic) id<RDSLoggingDelegate> loggingDelegate;
 /// The minimum time between one submission attempt and the next. The scheduler timer will be set to this value in the first instance, then after each re-set it will be set to this value * the multiplier value until it reaches the maximum value. Defaults to 5.0
 @property (atomic,readonly) NSTimeInterval minimumTimeTillNextSubmissionAttempt;
 /// The maximum time between one submission attempt and the next. The time between submission attempts will never be set to be longer than this time interval (not counting for periods of app suspension longer than this period). Defaults to 36000.0 (10 hrs)
