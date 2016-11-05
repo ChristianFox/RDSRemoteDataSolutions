@@ -5,11 +5,12 @@
 // Pods
 #import <RDSRemoteDataSolutions/RDSRemoteDataSolutions.h>
 #import <KFXAdditions/UIAlertController+KFXAdditions.h>
+#import <KFXLog/KFXLog.h>
 // Demo classes
 #import "DEMOLoggingDelegate.h"
 
 
-@interface DEMOViewController () <UITextFieldDelegate>
+@interface DEMOViewController () <UITextFieldDelegate, RDSSubmissionStationDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *paramKeyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *paramValueTextField;
@@ -204,6 +205,8 @@
 //#endif
 
     self.URLTextField.text = urlString;
+    self.paramKeyTextField.text = @"KeyX";
+    self.paramValueTextField.text = @"ValueX";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -235,7 +238,29 @@
     return YES;
 }
 
+//--------------------------------------------------------
+#pragma mark - RDSSubmissionStationDelegate
+//--------------------------------------------------------
+-(void)submissionStation:(RDSSubmissionStation *)submissionStation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission withData:(NSData *)data response:(NSURLResponse *)response{
+    
+    [KFXLog logMethodStart:@selector(submissionStation:didSuccessfullySubmitSubmission:withData:response:) sender:self];
+    [KFXLog logInfoWithSender:self format:@"Submission: %@, %ld",[submission HTTPMethod],(long)[submission submissionContentType]];
+    
+}
 
+-(void)submissionStation:(RDSSubmissionStation *)submissionStation didFailToSubmitSubmission:(id<RDSSubmissionInterface>)submission withError:(NSError *)error{
+    
+    [KFXLog logMethodStart:@selector(submissionStation:didFailToSubmitSubmission:withError:) sender:self];
+    [KFXLog logInfoWithSender:self format:@"Submission: %@, %ld",[submission HTTPMethod],(long)[submission submissionContentType]];
+
+}
+
+-(void)submissionStation:(RDSSubmissionStation *)submissionStation didCompleteResubmissionProcessWithSubmissionSuccesses:(NSUInteger)submissionSuccesses submissionFailures:(NSUInteger)submissionFailures{
+    
+    [KFXLog logMethodStart:@selector(submissionStation:didCompleteResubmissionProcessWithSubmissionSuccesses:submissionFailures:) sender:self];
+    [KFXLog logInfoWithSender:self format:@"Successes: %ld ; Failures: %ld",(unsigned long)submissionSuccesses,(unsigned long)submissionFailures];
+    
+}
 
 
 
@@ -248,6 +273,7 @@
 -(RDSSubmissionStation *)submissionStation{
     if (!_submissionStation) {
         _submissionStation = [RDSSubmissionStation defaultSubmissionStation];
+        _submissionStation.delegate = self;
     }
     return _submissionStation;
 }
@@ -299,8 +325,12 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         BOOL success = [note.userInfo[kRDSResubmissionResultKEY] boolValue];
-        self.lastResubmissionAttemptLabel.text = [NSString stringWithFormat:@"Last Attempt: %@ at %@",
+        self.lastResubmissionAttemptLabel.text = [NSString stringWithFormat:@"Last Attempt: %@ at \n%@",
                                                   success?@"SUCCESS":@"FAILURE",[NSDate date]];
+        if (success) {
+            self.pendingSubmissionsLabel.text = [NSString stringWithFormat:@"Pending Submissions: 0"];
+        }
+
     });
 
 }

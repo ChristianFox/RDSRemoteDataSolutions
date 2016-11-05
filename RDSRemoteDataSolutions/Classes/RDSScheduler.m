@@ -6,7 +6,7 @@
 
 NSTimeInterval const kDefaultMinimumTimeTillNextSubmissionAttempt = 5.0;
 NSTimeInterval const kDefaultMaximumTimeTillNextSubmissionAttempt = 36000.0;
-NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 5.0;
+NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 1.0;
 
 
 @interface RDSScheduler ()
@@ -18,10 +18,12 @@ NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 5.0;
 @property (atomic,readwrite) NSTimeInterval timeIntervalBetweenSubmissionAttempts;
 @property (atomic,readwrite) NSInteger failedSubmissionAttemptsSinceLastSuccess;
 @property (atomic,getter=isSubmissionAttemptScheduled,readwrite) BOOL submissionAttemptScheduled;
-
 @end
 
 @implementation RDSScheduler
+
+dispatch_queue_t schedulerQueue;
+
 
 //======================================================
 #pragma mark - ** Public Methods **
@@ -47,6 +49,7 @@ NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 5.0;
     scheduler.multiplierOfTimeTillNextSubmissionAttempt = multiplier;
     scheduler.timeIntervalBetweenSubmissionAttempts = minimum;
     scheduler.submissionAttemptScheduled = NO;
+    schedulerQueue = dispatch_queue_create("com.kfxtech.rdsremotedatasolutions.scheduler", NULL);
     return scheduler;
     
 }
@@ -86,6 +89,11 @@ NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 5.0;
 //======================================================
 -(void)submissionTimerDidFire:(NSTimer*)timer{
     
+    if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]){
+        NSString *message = @"RDSScheduler Resubmission Timer did fire - time to attempt resubmission";
+        [self.loggingDelegate logInfo:message];
+    }
+    
     NSNotification *note = [NSNotification notificationWithName:kRDSShouldAttemptResubmissionNOTIFICATION
                                                          object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:note];
@@ -93,20 +101,36 @@ NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt = 5.0;
 
 -(void)resetTimer{
     
-    self.submissionsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeIntervalBetweenSubmissionAttempts
-                                                             target:self
-                                                           selector:@selector(submissionTimerDidFire:)
-                                                           userInfo:nil
-                                                            repeats:NO];
-    // Log
-    if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]) {
-        
-        NSString *message = [NSString stringWithFormat:@"RDSScheduler submissionTimer has been reset to fire in %f seconds",self.timeIntervalBetweenSubmissionAttempts];
-        [self.loggingDelegate logInfo:message];
-    }
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:self.timeIntervalBetweenSubmissionAttempts
+                                             target:self
+                                           selector:@selector(submissionTimerDidFire:)
+                                           userInfo:nil
+                                            repeats:NO];
+    [[NSRunLoop mainRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
+    self.submissionsTimer = timer;
+    
+    
+//    dispatch_async(schedulerQueue, ^{
+//        
+//        self.submissionsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeIntervalBetweenSubmissionAttempts
+//                                                                 target:self
+//                                                               selector:@selector(submissionTimerDidFire:)
+//                                                               userInfo:nil
+//                                                                repeats:NO];
+        // Log
+        if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]) {
+            
+            NSString *message = [NSString stringWithFormat:@"RDSScheduler submissionTimer has been reset to fire in %f seconds",self.timeIntervalBetweenSubmissionAttempts];
+            [self.loggingDelegate logInfo:message];
+        }
+//
+//    });
 }
 
-
+//--------------------------------------------------------
+#pragma mark - Lazy Load
+//--------------------------------------------------------
 
 
 //--------------------------------------------------------

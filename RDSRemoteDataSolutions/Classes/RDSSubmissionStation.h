@@ -59,6 +59,13 @@ withData:(NSData*)data response:(NSURLResponse*)response;
          withCompletion:(RDSNetworkResponseCompletionBlock)completionBlock;
 
 
+//--------------------------------------------------------
+#pragma mark - Resubmission Scheduling
+//--------------------------------------------------------
+-(NSArray*)pendingSubmissions;
+-(void)removePendingSubmission:(id<RDSSubmissionInterface>)submission;
+
+
 
 @end
 NS_ASSUME_NONNULL_END

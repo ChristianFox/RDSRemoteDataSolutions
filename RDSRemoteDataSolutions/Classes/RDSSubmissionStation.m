@@ -22,7 +22,7 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 @interface RDSSubmissionStation () <RDSResubmissionOperationDelegate>
 
 // Store
-@property (strong,nonatomic) NSMutableArray *pendingSubmissions;
+@property (strong,nonatomic) NSMutableArray *pendingSubmissionsMutable;
 // Components
 @property (strong,nonatomic) RDSSubmitter *submitter;
 @property (strong,nonatomic) RDSScheduler *scheduler;
@@ -60,6 +60,9 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
     [station registerForNotifications];
     station.submitter = [RDSSubmitter submitterWithNetworkConnector:networkConnector];
     station.scheduler = [RDSScheduler defaultScheduler];
+    if (station.pendingSubmissionsMutable.count >= 1) {
+        [station postSubmissionStoredForResubmissionNotification];
+    }
     return station;
 }
 
@@ -96,7 +99,10 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
                               if ([(NSHTTPURLResponse*)response statusCode] != 200 || error != nil) {
                                   
                                   if ([submission shouldScheduleForResubmissionOnFailure]) {
-                                      [welf storeAndScheduleSubmission:submission];
+                                         [welf storeAndScheduleSubmission:submission];
+                                  }else{
+                                      // If this submission is a resubmission it will already be in the pendingSubmissionsMutable array but the bool -shouldSchedule may have changed, so in case that is the case run the submission through the -removePending method.
+                                      [welf removePendingSubmission:submission];
                                   }
                               }
                               
@@ -106,6 +112,21 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
         
     }];
 }
+
+
+//--------------------------------------------------------
+#pragma mark - Resubmission Scheduling
+//--------------------------------------------------------
+-(NSArray*)pendingSubmissions{
+    return [self.pendingSubmissionsMutable copy];
+}
+
+-(void)removePendingSubmission:(id<RDSSubmissionInterface>)submission{
+    if ([self.pendingSubmissionsMutable containsObject:submission]) {
+        [self.pendingSubmissionsMutable removeObject:submission];
+    }
+}
+
 
 
 //--------------------------------------------------------
@@ -162,7 +183,7 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 //--------------------------------------------------------
 -(void)resubmissionOperation:(RDSResubmissionOperation *)operation didSuccessfullySubmitSubmission:(id<RDSSubmissionInterface>)submission withData:(nonnull NSData *)data response:(nonnull NSURLResponse *)response{
     
-    [self.pendingSubmissions removeObject:submission];
+    [self.pendingSubmissionsMutable removeObject:submission];
     
     if ([self.delegate respondsToSelector:@selector(submissionStation:didSuccessfullySubmitSubmission:)]) {
         [self.delegate submissionStation:self didSuccessfullySubmitSubmission:submission withData:data response:response];
@@ -192,15 +213,17 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 //--------------------------------------------------------
 -(void)storeAndScheduleSubmission:(id<RDSSubmissionInterface>)submission{
     
-    if (![self.pendingSubmissions containsObject:submission]) {
+    if (![self.pendingSubmissionsMutable containsObject:submission]) {
         
-        [self.pendingSubmissions addObject:submission];
+        [self.pendingSubmissionsMutable addObject:submission];
         [self archivePendingSubmissionsWithError:nil];
-        
-        NSNotification *note = [NSNotification notificationWithName:kRDSSubmissionStoredForResubmissionNOTIFICATION
-                                                             object:nil
-                                                           userInfo:@{kRDSPendingSubmissionsCountKEY:@(self.pendingSubmissions.count)}];
-        [[NSNotificationCenter defaultCenter]postNotification:note];
+
+        [self postSubmissionStoredForResubmissionNotification];
+        if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]) {
+            NSString *message = [NSString stringWithFormat:@"RDSSubmissionStation has %lu pending submissions.",(unsigned long)_pendingSubmissionsMutable.count];
+            [self.loggingDelegate logInfo:message];
+        }
+
     }
     
 }
@@ -208,7 +231,7 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 -(BOOL)archivePendingSubmissionsWithError:(NSError*__autoreleasing __nullable*)error{
     
     BOOL success = NO;
-    success = [NSKeyedArchiver kfx_archiveRootObject:self.pendingSubmissions
+    success = [NSKeyedArchiver kfx_archiveRootObject:self.pendingSubmissionsMutable
                                      toDirectoryPath:[self pendingSubmissionsArchiveDirectoryPathWithError:error]
                                         withFileName:kPendingSubmissionsArchiveFileName
                                                error:error];
@@ -234,7 +257,7 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
     
     
     RDSResubmissionOperation *operation =
-    [RDSResubmissionOperation resubmissionOperationWithSubmissions:[self.pendingSubmissions copy]
+    [RDSResubmissionOperation resubmissionOperationWithSubmissions:[self.pendingSubmissionsMutable copy]
                                                          submitter:self.submitter];
     operation.delegate = self;
     [self.operationQueue addOperation:operation];
@@ -253,11 +276,20 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
                                               object:nil];
 }
 
+-(void)postSubmissionStoredForResubmissionNotification{
+    
+    NSNotification *note = [NSNotification notificationWithName:kRDSSubmissionStoredForResubmissionNOTIFICATION
+                                                         object:nil
+                                                       userInfo:@{kRDSPendingSubmissionsCountKEY:@(self.pendingSubmissionsMutable.count)}];
+    [[NSNotificationCenter defaultCenter]postNotification:note];
+
+}
+
 //--------------------------------------------------------
 #pragma mark - Lazy Load
 //--------------------------------------------------------
--(NSMutableArray *)pendingSubmissions{
-    if (!_pendingSubmissions) {
+-(NSMutableArray *)pendingSubmissionsMutable{
+    if (!_pendingSubmissionsMutable) {
         
         NSError *error;
         NSString *dirPath = [self pendingSubmissionsArchiveDirectoryPathWithError:&error];
@@ -271,16 +303,12 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
             if (error != nil) {
                 NSLog(@"<ERROR> RDSRemoteDataSolutions pending submissions archive is nil: %@",error.localizedDescription);
             }
-            _pendingSubmissions = [NSMutableArray arrayWithCapacity:1];
+            _pendingSubmissionsMutable = [NSMutableArray arrayWithCapacity:1];
         }else{
-            _pendingSubmissions = [submissions mutableCopy];
+            _pendingSubmissionsMutable = [submissions mutableCopy];
         }
     }
-    if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]) {
-        NSString *message = [NSString stringWithFormat:@"RDSSubmissionStation has %lu pending submissions.",(unsigned long)_pendingSubmissions.count];
-        [self.loggingDelegate logInfo:message];
-    }
-    return _pendingSubmissions;
+    return _pendingSubmissionsMutable;
 }
 
 

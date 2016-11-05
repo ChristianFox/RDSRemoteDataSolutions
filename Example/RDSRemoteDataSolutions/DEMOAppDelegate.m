@@ -7,12 +7,17 @@
 //
 
 #import "DEMOAppDelegate.h"
+// Pods
+#import <KFXLog/KFXLogConfigurator.h>
+#import <KFXLog/KFXLog.h>
 
 @implementation DEMOAppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self configureKFXLog];
     return YES;
 }
 
@@ -43,4 +48,74 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+
+
+-(void)configureKFXLog{
+    
+    KFXLogConfigurator *config = [KFXLogConfigurator sharedConfigurator];
+    config.buildConfiguration = KFXBuildConfigurationDebug;
+    config.shouldLogUncaughtExceptions = YES;
+    config.consoleLogType = KFXConsoleLogTypeClean;
+    config.debugLogMediums = KFXLogMediumConsole;
+//    config.adHocLogMediums =  KFXLogMedium;
+//    config.releaseLogMediums = KFXLogMediumFile | KFXLogMediumService;
+    config.shouldLogUncaughtExceptions = YES;
+    
+    [config.cleanLogDescriptor configureWithLogFormat:KFXLogFormatFir];
+    config.cleanLogDescriptor.showDate = YES;
+    config.cleanLogDescriptor.maxIndent = 16;
+    config.cleanLogDescriptor.order = KFXLogOrderDatePrefixIndent;
+//    [config.fileLogDescriptor configureWithLogFormat:KFXLogFormatBirch];
+//    config.fileLogDescriptor.indentChar = ' ';
+//    config.fileLogDescriptor.maxIndent = 10;
+//    config.fileLogDescriptor.showSender = KFXShowSenderClassOnly;
+//    config.fileLogDescriptor.order = KFXLogOrderDatePrefixIndent;
+//#if DEBUG
+//    config.fileLogDescriptor.split = KFXFileLogsSplitByBuild;
+//#elif ADHOC
+//    config.fileLogDescriptor.split = KFXFileLogsSplitByDay;
+//#else
+//    config.fileLogDescriptor.split = KFXFileLogsSplitByDay;
+//#endif
+//    //    config.fileLogDescriptor.blacklist = KFXLogTypeMethodStart;
+//    
+//    [config.alertLogDescriptor configureWithLogFormat:KFXLogFormatPine];
+//    //    config.alertLogDescriptor.whitelist = KFXLogTypeError | KFXLogTypeFail | KFXLogTypeWarning;
+//    [config.serviceLogDescriptor configureWithLogFormat:KFXLogFormatBalsa];
+//    config.serviceLogDescriptor.showSender = KFXShowSenderClassOnly;
+//    config.serviceLogger = [GLCServiceLogger sharedServiceLogger];
+    
+    [config printSettings];
+    
+    [KFXLog logConfiguredObject:config sender:self];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

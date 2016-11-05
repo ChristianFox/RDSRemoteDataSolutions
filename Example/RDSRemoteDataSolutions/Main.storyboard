@@ -75,8 +75,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Attempt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mey-06-FAm">
-                                <rect key="frame" x="34" y="606" width="104" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Attempt:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mey-06-FAm">
+                                <rect key="frame" x="34" y="606" width="103.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -140,6 +140,7 @@
                             <constraint firstItem="tG8-P3-4bS" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="g48-N1-Jx8"/>
                             <constraint firstItem="89r-UI-jau" firstAttribute="centerY" secondItem="Sdw-oC-g7e" secondAttribute="centerY" id="jIG-pQ-DXJ"/>
                             <constraint firstItem="Sdw-oC-g7e" firstAttribute="leading" secondItem="89r-UI-jau" secondAttribute="trailing" constant="7" id="jc3-zD-j6y"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Mey-06-FAm" secondAttribute="trailing" id="lix-L6-iDk"/>
                             <constraint firstItem="V6y-Ou-Eis" firstAttribute="top" secondItem="89r-UI-jau" secondAttribute="bottom" constant="24" id="nJy-e3-RLF"/>
                             <constraint firstItem="Sdw-oC-g7e" firstAttribute="top" secondItem="wgK-Wp-AmH" secondAttribute="bottom" constant="15" id="pL1-aN-1NJ"/>
                             <constraint firstItem="Kof-fR-JTC" firstAttribute="top" secondItem="nSt-fC-zr3" secondAttribute="bottom" constant="8" id="qS5-go-Fop"/>
