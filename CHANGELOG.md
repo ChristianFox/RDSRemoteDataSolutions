@@ -1,5 +1,14 @@
 # Change Log #
 
+
+## [0.6.0]
+- Add concrete RDSSubmission class
+
+#### Example Projec
+- Add UI for trying out the library
+
+
+
 ## [0.5.0](https://bitbucket.org/kfxteam/rdsremotedatasolutions/commits/tag/0.5.0) 2016/...
 
 

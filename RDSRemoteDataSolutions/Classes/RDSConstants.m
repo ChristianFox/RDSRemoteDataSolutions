@@ -16,7 +16,7 @@ NSString *const kRDSResubmissionProcessCompleteNOTIFICATION = @"RDSResubmissionP
 #pragma mark - Notification Keys
 //--------------------------------------------------------
 NSString *const kRDSResubmissionResultKEY = @"ResubmissionResult";
-
+NSString *const kRDSPendingSubmissionsCountKEY = @"PendingSubmissionsCount";
 
 
 @end

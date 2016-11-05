@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/KFXAdditions/KFXAdditions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KFXLog/KFXLog.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RDSRemoteDataSolutions/RDSRemoteDataSolutions.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/KFXAdditions/KFXAdditions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KFXLog/KFXLog.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RDSRemoteDataSolutions/RDSRemoteDataSolutions.framework"
 fi

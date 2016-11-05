@@ -21,28 +21,28 @@
             
            if (fileName == nil){
                 
-                message = NSLocalizedString(@"The fileName to use when unarchiving is nil",@"");
+                message = NSLocalizedString(@"The fileName to use when unarchiving is nil",@"The fileName to use when unarchiving is nil");
                 
             }else if (dirPath == nil){
                 
-                message = NSLocalizedString(@"The directoryPath is nil",@"");
+                message = NSLocalizedString(@"The directoryPath is nil",@"The directoryPath is nil");
                 
             }else if (![[NSFileManager defaultManager]fileExistsAtPath:dirPath]){
                 
-                message = NSLocalizedString(@"The directoryPath is invalid",@"");
+                message = NSLocalizedString(@"The directoryPath is invalid",@"The directoryPath is invalid");
                 
             }else if ([[NSFileManager defaultManager]fileExistsAtPath:dirPath isDirectory:&isDirectory]
                       && !isDirectory){
                 
-                message = NSLocalizedString(@"The directoryPath points to a file not a directory",@"");
+                message = NSLocalizedString(@"The directoryPath points to a file not a directory",@"The directoryPath points to a file not a directory");
             
             }else if (![[NSFileManager defaultManager]fileExistsAtPath:fullPath]){
                 
-                message = NSLocalizedString(@"No file found with the given file name in the given directory", @"");
+                message = NSLocalizedString(@"No file found with the given file name in the given directory", @"No file found with the given file name in the given directory");
                 
             }else{
                 
-                message = NSLocalizedString(@"Unknown Error when attempting to unarchive",@"");
+                message = NSLocalizedString(@"Unknown Error when attempting to unarchive",@"Unknown Error when attempting to unarchive");
                 
             }
             

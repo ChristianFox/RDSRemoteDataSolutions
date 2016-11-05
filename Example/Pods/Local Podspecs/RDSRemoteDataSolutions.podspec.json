@@ -1,6 +1,6 @@
 {
   "name": "RDSRemoteDataSolutions",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "summary": "A RDSRemoteDataSolutions.",
   "description": "Connect to network etc. blah blah blha",
   "homepage": "https://kfxtech@bitbucket.org/kfxteam/rdsremotedatasolutions.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://kfxtech@bitbucket.org/kfxteam/rdsremotedatasolutions.git",
-    "tag": "0.5.0"
+    "tag": "0.6.0"
   },
   "platforms": {
     "ios": "8.0"

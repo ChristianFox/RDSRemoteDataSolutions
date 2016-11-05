@@ -95,8 +95,9 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
                               
                               if ([(NSHTTPURLResponse*)response statusCode] != 200 || error != nil) {
                                   
-                                  [welf storeAndScheduleSubmission:submission];
-                                  
+                                  if ([submission shouldScheduleForResubmissionOnFailure]) {
+                                      [welf storeAndScheduleSubmission:submission];
+                                  }
                               }
                               
                               completionBlock(data,response,error);
@@ -197,7 +198,8 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
         [self archivePendingSubmissionsWithError:nil];
         
         NSNotification *note = [NSNotification notificationWithName:kRDSSubmissionStoredForResubmissionNOTIFICATION
-                                                             object:nil];
+                                                             object:nil
+                                                           userInfo:@{kRDSPendingSubmissionsCountKEY:@(self.pendingSubmissions.count)}];
         [[NSNotificationCenter defaultCenter]postNotification:note];
     }
     
@@ -273,6 +275,10 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
         }else{
             _pendingSubmissions = [submissions mutableCopy];
         }
+    }
+    if ([self.loggingDelegate respondsToSelector:@selector(logInfo:)]) {
+        NSString *message = [NSString stringWithFormat:@"RDSSubmissionStation has %lu pending submissions.",(unsigned long)_pendingSubmissions.count];
+        [self.loggingDelegate logInfo:message];
     }
     return _pendingSubmissions;
 }

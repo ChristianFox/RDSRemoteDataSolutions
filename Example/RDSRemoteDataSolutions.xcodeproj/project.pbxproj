@@ -22,6 +22,15 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		DB6615D01DCD429C00AE8B43 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = DB6615CF1DCD429C00AE8B43 /* CHANGELOG.md */; };
+		DB6615D21DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615D11DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m */; };
+		DB6615D51DCD550700AE8B43 /* MOCKLocalHostSubmission.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615D41DCD550700AE8B43 /* MOCKLocalHostSubmission.m */; };
+		DB6615DC1DCDF8D500AE8B43 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6615DB1DCDF8D500AE8B43 /* Launch Screen.storyboard */; };
+		DB6615DE1DCE128500AE8B43 /* RDSLocalHostBackendProxyBasicResponsesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615DD1DCE128500AE8B43 /* RDSLocalHostBackendProxyBasicResponsesTests.m */; };
+		DB6615E01DCE129700AE8B43 /* RDSKFXTechBackendProxyBasicResponsesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615DF1DCE129700AE8B43 /* RDSKFXTechBackendProxyBasicResponsesTests.m */; };
+		DB6615EA1DCE1B3200AE8B43 /* RDSBackendProxyMainResponsesAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615E91DCE1B3200AE8B43 /* RDSBackendProxyMainResponsesAbstract.m */; };
+		DB6615ED1DCE1B9B00AE8B43 /* RDSLocalHostBackendProxyMainResponsesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615EC1DCE1B9A00AE8B43 /* RDSLocalHostBackendProxyMainResponsesTests.m */; };
+		DB6615EF1DCE1BA700AE8B43 /* RDSKFXTechBackendProxyMainResponsesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615EE1DCE1BA700AE8B43 /* RDSKFXTechBackendProxyMainResponsesTests.m */; };
 		DBC7597F1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC7597E1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m */; };
 		DBC759851DC4BAAC00CDC97F /* RDSSubmitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */; };
 		DBC7598D1DC4BEBB00CDC97F /* MOCKSubmission.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */; };
@@ -33,7 +42,6 @@
 		DBC759E01DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759DF1DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m */; };
 		DBC759E61DC62D0200CDC97F /* RDSResubmissionOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */; };
 		DBC759E91DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */; };
-		DBC759EB1DC6857F00CDC97F /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = DBC759EA1DC6857F00CDC97F /* CHANGELOG.md */; };
 		DBC759F51DC68B4000CDC97F /* RDSValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */; };
 		DBC759F81DC6A57600CDC97F /* DEMOLoggingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC759F71DC6A57600CDC97F /* DEMOLoggingDelegate.m */; };
 /* End PBXBuildFile section */
@@ -76,6 +84,18 @@
 		954754D91DBB5BC02E788D62 /* Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Tests/Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A84D91D5C0F29FB81A673E73 /* Pods-RDSRemoteDataSolutions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Tests/Pods-RDSRemoteDataSolutions_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB0BC979680907282280E85 /* Pods-RDSRemoteDataSolutions_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Example/Pods-RDSRemoteDataSolutions_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DB6615CF1DCD429C00AE8B43 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		DB6615D11DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSBackendProxyBasicResponsesTestsAbstract.m; sourceTree = "<group>"; };
+		DB6615D31DCD550700AE8B43 /* MOCKLocalHostSubmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKLocalHostSubmission.h; sourceTree = "<group>"; };
+		DB6615D41DCD550700AE8B43 /* MOCKLocalHostSubmission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKLocalHostSubmission.m; sourceTree = "<group>"; };
+		DB6615DB1DCDF8D500AE8B43 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		DB6615DD1DCE128500AE8B43 /* RDSLocalHostBackendProxyBasicResponsesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSLocalHostBackendProxyBasicResponsesTests.m; sourceTree = "<group>"; };
+		DB6615DF1DCE129700AE8B43 /* RDSKFXTechBackendProxyBasicResponsesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSKFXTechBackendProxyBasicResponsesTests.m; sourceTree = "<group>"; };
+		DB6615E11DCE12C800AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDSBackendProxyBasicResponsesTestsAbstract.h; sourceTree = "<group>"; };
+		DB6615E91DCE1B3200AE8B43 /* RDSBackendProxyMainResponsesAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSBackendProxyMainResponsesAbstract.m; sourceTree = "<group>"; };
+		DB6615EB1DCE1B3F00AE8B43 /* RDSBackendProxyMainResponsesAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDSBackendProxyMainResponsesAbstract.h; sourceTree = "<group>"; };
+		DB6615EC1DCE1B9A00AE8B43 /* RDSLocalHostBackendProxyMainResponsesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSLocalHostBackendProxyMainResponsesTests.m; sourceTree = "<group>"; };
+		DB6615EE1DCE1BA700AE8B43 /* RDSKFXTechBackendProxyMainResponsesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSKFXTechBackendProxyMainResponsesTests.m; sourceTree = "<group>"; };
 		DBC7597E1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSNetworkConnectorErrorReportingTests.m; sourceTree = "<group>"; };
 		DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSSubmitterTests.m; sourceTree = "<group>"; };
 		DBC7598B1DC4BEBB00CDC97F /* MOCKSubmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKSubmission.h; sourceTree = "<group>"; };
@@ -91,7 +111,6 @@
 		DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSResubmissionOperationTests.m; sourceTree = "<group>"; };
 		DBC759E71DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCKSubmitterAlwaysReportsSuccess.h; sourceTree = "<group>"; };
 		DBC759E81DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCKSubmitterAlwaysReportsSuccess.m; sourceTree = "<group>"; };
-		DBC759EA1DC6857F00CDC97F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = "../../../KFXLog - multiple versions/KFXLog/KFXLog/CHANGELOG.md"; sourceTree = "<group>"; };
 		DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDSValidatorTests.m; sourceTree = "<group>"; };
 		DBC759F61DC6A57600CDC97F /* DEMOLoggingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOLoggingDelegate.h; sourceTree = "<group>"; };
 		DBC759F71DC6A57600CDC97F /* DEMOLoggingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOLoggingDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +194,7 @@
 				6003F59C195388D20070C39A /* DEMOAppDelegate.h */,
 				6003F59D195388D20070C39A /* DEMOAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				DB6615DB1DCDF8D500AE8B43 /* Launch Screen.storyboard */,
 				6003F5A5195388D20070C39A /* DEMOViewController.h */,
 				6003F5A6195388D20070C39A /* DEMOViewController.m */,
 				DBC759F61DC6A57600CDC97F /* DEMOLoggingDelegate.h */,
@@ -200,14 +220,12 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DBC7597E1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m */,
-				DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */,
-				DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */,
-				DBC759D31DC564C000CDC97F /* RDSSubmissionStationTests.m */,
-				DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */,
-				DBC759DC1DC5C73700CDC97F /* RDSSchedulerTests.m */,
-				DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */,
-				DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */,
+				DB6615E31DCE1AB900AE8B43 /* Integrated Tests */,
+				DB6615E81DCE1AFD00AE8B43 /* Network Connector Tests */,
+				DB6615E71DCE1AF500AE8B43 /* Submission Tests */,
+				DB6615E41DCE1AD000AE8B43 /* Helper Tests */,
+				DB6615E51DCE1AD900AE8B43 /* Scheduler Tests */,
+				DB6615E61DCE1AE900AE8B43 /* Resubmission Tests */,
 				DBC7598A1DC4BEA700CDC97F /* Mocks */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -229,15 +247,91 @@
 			children = (
 				376552F3B23126EEA0CC268A /* RDSRemoteDataSolutions.podspec */,
 				E46A485E89E46EB6F0EF8FE5 /* README.md */,
-				DBC759EA1DC6857F00CDC97F /* CHANGELOG.md */,
 				61F1DC332E0A9877A00E5C1E /* LICENSE */,
+				DB6615CF1DCD429C00AE8B43 /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		DB6615E21DCE1AAA00AE8B43 /* Backend Proxy Basic Responses Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DB6615DD1DCE128500AE8B43 /* RDSLocalHostBackendProxyBasicResponsesTests.m */,
+				DB6615DF1DCE129700AE8B43 /* RDSKFXTechBackendProxyBasicResponsesTests.m */,
+				DB6615E11DCE12C800AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.h */,
+				DB6615D11DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m */,
+			);
+			name = "Backend Proxy Basic Responses Tests";
+			sourceTree = "<group>";
+		};
+		DB6615E31DCE1AB900AE8B43 /* Integrated Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DB6615F01DCE1BBB00AE8B43 /* Backend Proxy Main Responses Tests */,
+				DB6615E21DCE1AAA00AE8B43 /* Backend Proxy Basic Responses Tests */,
+			);
+			name = "Integrated Tests";
+			sourceTree = "<group>";
+		};
+		DB6615E41DCE1AD000AE8B43 /* Helper Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC759CD1DC548C200CDC97F /* RDSHelperTests.m */,
+				DBC759F41DC68B4000CDC97F /* RDSValidatorTests.m */,
+			);
+			name = "Helper Tests";
+			sourceTree = "<group>";
+		};
+		DB6615E51DCE1AD900AE8B43 /* Scheduler Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC759DC1DC5C73700CDC97F /* RDSSchedulerTests.m */,
+			);
+			name = "Scheduler Tests";
+			sourceTree = "<group>";
+		};
+		DB6615E61DCE1AE900AE8B43 /* Resubmission Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC759E51DC62D0200CDC97F /* RDSResubmissionOperationTests.m */,
+			);
+			name = "Resubmission Tests";
+			sourceTree = "<group>";
+		};
+		DB6615E71DCE1AF500AE8B43 /* Submission Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC759841DC4BAAC00CDC97F /* RDSSubmitterTests.m */,
+				DBC759D31DC564C000CDC97F /* RDSSubmissionStationTests.m */,
+			);
+			name = "Submission Tests";
+			sourceTree = "<group>";
+		};
+		DB6615E81DCE1AFD00AE8B43 /* Network Connector Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC7597E1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m */,
+				DBC7599F1DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m */,
+			);
+			name = "Network Connector Tests";
+			sourceTree = "<group>";
+		};
+		DB6615F01DCE1BBB00AE8B43 /* Backend Proxy Main Responses Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DB6615EC1DCE1B9A00AE8B43 /* RDSLocalHostBackendProxyMainResponsesTests.m */,
+				DB6615EE1DCE1BA700AE8B43 /* RDSKFXTechBackendProxyMainResponsesTests.m */,
+				DB6615EB1DCE1B3F00AE8B43 /* RDSBackendProxyMainResponsesAbstract.h */,
+				DB6615E91DCE1B3200AE8B43 /* RDSBackendProxyMainResponsesAbstract.m */,
+			);
+			name = "Backend Proxy Main Responses Tests";
 			sourceTree = "<group>";
 		};
 		DBC7598A1DC4BEA700CDC97F /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				DB6615D31DCD550700AE8B43 /* MOCKLocalHostSubmission.h */,
+				DB6615D41DCD550700AE8B43 /* MOCKLocalHostSubmission.m */,
 				DBC7598B1DC4BEBB00CDC97F /* MOCKSubmission.h */,
 				DBC7598C1DC4BEBB00CDC97F /* MOCKSubmission.m */,
 				DBC759D51DC564E200CDC97F /* MOCKNetworkConnector.h */,
@@ -305,7 +399,11 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Christian Fox";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 94Z3AYT2U7;
+					};
 					6003F5AD195388D20070C39A = {
+						DevelopmentTeam = 94Z3AYT2U7;
 						LastSwiftMigration = 0810;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -337,6 +435,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				DB6615DC1DCDF8D500AE8B43 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,9 +565,10 @@
 				DBC759D71DC564E200CDC97F /* MOCKNetworkConnector.m in Sources */,
 				DBC759E01DC6212500CDC97F /* MOCKNetworkConnectorWithFailingNetwork.m in Sources */,
 				6003F59E195388D20070C39A /* DEMOAppDelegate.m in Sources */,
+				DB6615D51DCD550700AE8B43 /* MOCKLocalHostSubmission.m in Sources */,
+				DB6615D01DCD429C00AE8B43 /* CHANGELOG.md in Sources */,
 				6003F5A7195388D20070C39A /* DEMOViewController.m in Sources */,
 				DBC759E91DC634FC00CDC97F /* MOCKSubmitterAlwaysReportsSuccess.m in Sources */,
-				DBC759EB1DC6857F00CDC97F /* CHANGELOG.md in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				DBC759F81DC6A57600CDC97F /* DEMOLoggingDelegate.m in Sources */,
 			);
@@ -479,14 +579,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBC759D41DC564C000CDC97F /* RDSSubmissionStationTests.m in Sources */,
+				DB6615EF1DCE1BA700AE8B43 /* RDSKFXTechBackendProxyMainResponsesTests.m in Sources */,
 				DBC7598D1DC4BEBB00CDC97F /* MOCKSubmission.m in Sources */,
 				DBC759E61DC62D0200CDC97F /* RDSResubmissionOperationTests.m in Sources */,
 				DBC7597F1DC4B03900CDC97F /* RDSNetworkConnectorErrorReportingTests.m in Sources */,
 				DBC759A01DC4DB2C00CDC97F /* RDSNetworkConnectorLiveTests.m in Sources */,
 				DBC759851DC4BAAC00CDC97F /* RDSSubmitterTests.m in Sources */,
+				DB6615EA1DCE1B3200AE8B43 /* RDSBackendProxyMainResponsesAbstract.m in Sources */,
+				DB6615ED1DCE1B9B00AE8B43 /* RDSLocalHostBackendProxyMainResponsesTests.m in Sources */,
 				DBC759CE1DC548C200CDC97F /* RDSHelperTests.m in Sources */,
 				DBC759F51DC68B4000CDC97F /* RDSValidatorTests.m in Sources */,
 				DBC759DD1DC5C73700CDC97F /* RDSSchedulerTests.m in Sources */,
+				DB6615E01DCE129700AE8B43 /* RDSKFXTechBackendProxyBasicResponsesTests.m in Sources */,
+				DB6615DE1DCE128500AE8B43 /* RDSLocalHostBackendProxyBasicResponsesTests.m in Sources */,
+				DB6615D21DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +705,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 94Z3AYT2U7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RDSRemoteDataSolutions/RDSRemoteDataSolutions-Prefix.pch";
 				INFOPLIST_FILE = "RDSRemoteDataSolutions/RDSRemoteDataSolutions-Info.plist";
@@ -615,6 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 94Z3AYT2U7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RDSRemoteDataSolutions/RDSRemoteDataSolutions-Prefix.pch";
 				INFOPLIST_FILE = "RDSRemoteDataSolutions/RDSRemoteDataSolutions-Info.plist";
@@ -630,6 +738,7 @@
 			baseConfigurationReference = 954754D91DBB5BC02E788D62 /* Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 94Z3AYT2U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -655,6 +764,7 @@
 			baseConfigurationReference = A84D91D5C0F29FB81A673E73 /* Pods-RDSRemoteDataSolutions_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 94Z3AYT2U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -39,5 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString*__nullable)HTTPMethod;
 
 
+/**
+ * @brief Whether the submission should be scheduled to be resubmitted at a later date if it fails. If YES then it will be resubmitted until it succeeds.
+ * @return A boolean value indicating whether this object should be resubmitted or not.
+ * @since 0.6.0
+ **/
+-(BOOL)shouldScheduleForResubmissionOnFailure;
+
 @end
 NS_ASSUME_NONNULL_END

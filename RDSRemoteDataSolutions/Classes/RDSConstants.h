@@ -17,6 +17,7 @@ extern NSString *const kRDSResubmissionProcessCompleteNOTIFICATION;
 #pragma mark - Notification Keys
 //--------------------------------------------------------
 extern NSString *const kRDSResubmissionResultKEY;
+extern NSString *const kRDSPendingSubmissionsCountKEY;
 
 
 @end

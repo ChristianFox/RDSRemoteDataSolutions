@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 
+#import "CLLocation+KFXAdditions.h"
 #import "NSArray+KFXAdditions.h"
 #import "NSDate+KFXAdditions.h"
 #import "NSFileManager+KFXDirectoryLocations.h"
@@ -10,6 +11,7 @@
 #import "NSMutableSet+KFXAdditions.h"
 #import "NSObject+KFXAdditions.h"
 #import "NSString+KFXAdditions.h"
+#import "UIAlertController+KFXAdditions.h"
 #import "UIApplication+KFXAdditions.h"
 #import "UIColor+KFXAdditions.h"
 #import "UIImage+KFXAdditions.h"

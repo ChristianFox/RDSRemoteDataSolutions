@@ -2,28 +2,29 @@
 
 
 #import "DEMOLoggingDelegate.h"
-
+// Pods
+#import <KFXLog/KFXLog.h>
 
 @implementation DEMOLoggingDelegate
 
 -(void)logInfo:(NSString*)info{
-    NSLog(@"__RDS__ <INFO> %@",info);
+    [KFXLog logInfoWithSender:self format:@"_RDS_: %@",info];
 }
 
 -(void)logNotice:(NSString*)notice{
-    NSLog(@"__RDS__ <NOTICE> %@",notice);
+    [KFXLog logNoticeWithSender:self format:@"_RDS_: %@",notice];
 }
 
 -(void)logFail:(NSString*)fail{
-    NSLog(@"__RDS__ <FAIL> %@",fail);
+    [KFXLog logFailWithSender:self format:@"_RDS_: %@",fail];
 }
 
 -(void)logWarning:(NSString*)warning{
-    NSLog(@"__RDS__ <WARNING> %@",warning);
+    [KFXLog logWarningWithSender:self format:@"_RDS_: %@",warning];
 }
 
 -(void)logError:(NSError*)error{
-    NSLog(@"__RDS__ <ERROR> %ld, %@",error.code,error.localizedDescription);
+    [KFXLog logErrorIfExists:error sender:self];
 }
 
 

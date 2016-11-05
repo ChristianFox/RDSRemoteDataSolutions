@@ -5,14 +5,14 @@ target 'RDSRemoteDataSolutions_Example' do
   ## Sources
   ### If using private pods
   source 'https://bitbucket.org/kfxteam/kfxtech_cocoapodsspec'
+  pod 'KFXLog'
+  pod 'KFXAdditions'
   ### If using from trunk
   source 'http://github.com/Cocoapods/Specs.git'
-  pod 'KFXAdditions'
+  
 
   target 'RDSRemoteDataSolutions_Tests' do
     inherit! :search_paths
 
-    pod 'Kiwi'
-  pod 'FBSnapshotTestCase'
   end
 end

@@ -1,18 +1,12 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - KFXAdditions (0.13.1)
-  - Kiwi (2.4.0)
-  - RDSRemoteDataSolutions (0.5.0):
+  - KFXAdditions (0.16.0)
+  - KFXLog (1.1.2.2)
+  - RDSRemoteDataSolutions (0.6.0):
     - KFXAdditions
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - KFXAdditions
-  - Kiwi
+  - KFXLog
   - RDSRemoteDataSolutions (from `../`)
 
 EXTERNAL SOURCES:
@@ -20,11 +14,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  KFXAdditions: 2a4936316d8195e1e11bbac03962b60d3793fe25
-  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  RDSRemoteDataSolutions: ca1504662d2c3c00ebcf37e3b28c0307cf28d855
+  KFXAdditions: 2c09f8743c6a5885ad0dc064b11fd3c94f4ead8e
+  KFXLog: 3d67635e6f07f721cc7aa589843a354c1cf39c3c
+  RDSRemoteDataSolutions: 78e9d13d8bc55580aad247ec7ab3d21c7bf0788e
 
-PODFILE CHECKSUM: 31e6fc2b8186e800940628d6531c24b8b88830db
+PODFILE CHECKSUM: 6953d4e0695619c5837f0af9ec482c56ffbc5257
 
 COCOAPODS: 1.1.0.rc.2
