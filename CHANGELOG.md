@@ -1,5 +1,9 @@
 # Change Log #
 
+## 0.7.0
+- Adds additional methods to RDSNetworkConnectorInterface and implements then in RDSNetworkConnector. Methods are duplicates of the 3 existing methods with an additional parameter for specifying additionalHeaderFields
+- Refactors RDSNetworkConnector so new methods are called by old methods with nil passed for additionalHeaderFields 
+- Fixes some bugs
 
 ## [0.6.0]
 - Add concrete RDSSubmission class

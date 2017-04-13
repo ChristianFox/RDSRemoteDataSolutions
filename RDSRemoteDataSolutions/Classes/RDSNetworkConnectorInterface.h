@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)dataTaskWithURL:(NSURL *)url
             completion:(RDSNetworkResponseCompletionBlock)completionBlock;
 
+-(void)dataTaskWithURL:(NSURL *)url
+additionalHeaderFields:(NSDictionary<NSString*,NSString*>*)additionalHeaderFields
+            HTTPMethod:(NSString*)httpMethod
+            completion:(RDSNetworkResponseCompletionBlock)completionBlock;
+
 
 /**
  * @brief
@@ -29,6 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
                  HTTPMethod:(NSString*)httpMethod
                  completion:(RDSNetworkResponseCompletionBlock)completionBlock;
 
+-(void)dataTaskWithJSONData:(NSData *)jsonData
+                        URL:(NSURL *)url
+     additionalHeaderFields:(nullable NSDictionary<NSString*,NSString*>*)additionalHeaderFields
+                 HTTPMethod:(NSString*)httpMethod
+                 completion:(RDSNetworkResponseCompletionBlock)completionBlock;
+
+
 /**
  * @brief
  * @param
@@ -39,6 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 -(void)dataTaskWithURLEncodedString:(NSString *)urlEncodedString
                                 URL:(NSURL *)url
+                         HTTPMethod:(NSString*)httpMethod
+                         completion:(RDSNetworkResponseCompletionBlock)completionBlock;
+
+-(void)dataTaskWithURLEncodedString:(NSString *)urlEncodedString
+                                URL:(NSURL *)url
+             additionalHeaderFields:(nullable NSDictionary<NSString*,NSString*>*)additionalHeaderFields
                          HTTPMethod:(NSString*)httpMethod
                          completion:(RDSNetworkResponseCompletionBlock)completionBlock;
 

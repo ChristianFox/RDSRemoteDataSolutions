@@ -86,7 +86,7 @@
                                                  response:response];
                  }else{
                      self.submissionFailures++;
-                     if ([self.delegate respondsToSelector:@selector(resubmissionOperation:didFailToSubmitSubmission:)]) {
+                     if ([self.delegate respondsToSelector:@selector(resubmissionOperation:didFailToSubmitSubmission:withError:)]) {
                          [self.delegate resubmissionOperation:self didFailToSubmitSubmission:aSubmission withError:error];
                      }
                  }

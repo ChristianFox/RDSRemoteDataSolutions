@@ -34,6 +34,7 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
 @implementation RDSSubmissionStation
 
 @synthesize validator = _validator;
+@synthesize loggingDelegate = _loggingDelegate;
 
 
 //======================================================
@@ -142,6 +143,15 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
     }
 }
 
+-(id<RDSLoggingDelegate>)loggingDelegate{
+    id<RDSLoggingDelegate> delegate;
+    @synchronized (_loggingDelegate) {
+        delegate = _loggingDelegate;
+    }
+    return delegate;
+    
+}
+
 -(void)setValidator:(RDSValidator *)validator{
     @synchronized (_validator) {
         if (validator != _validator) {
@@ -185,14 +195,14 @@ NSString *const kPendingSubmissionsArchiveFileName = @"PendingSubmissions";
     
     [self.pendingSubmissionsMutable removeObject:submission];
     
-    if ([self.delegate respondsToSelector:@selector(submissionStation:didSuccessfullySubmitSubmission:)]) {
+    if ([self.delegate respondsToSelector:@selector(submissionStation:didSuccessfullySubmitSubmission:withData:response:)]) {
         [self.delegate submissionStation:self didSuccessfullySubmitSubmission:submission withData:data response:response];
     }
 }
 
 -(void)resubmissionOperation:(RDSResubmissionOperation *)operation didFailToSubmitSubmission:(id<RDSSubmissionInterface>)submission withError:(nonnull NSError *)error{
     
-    if ([self.delegate respondsToSelector:@selector(submissionStation:didFailToSubmitSubmission:)]) {
+    if ([self.delegate respondsToSelector:@selector(submissionStation:didFailToSubmitSubmission:withError:)]) {
         [self.delegate submissionStation:self didFailToSubmitSubmission:submission withError:error];
     }
 }

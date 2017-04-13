@@ -18,6 +18,7 @@
 @implementation RDSSubmitter
 
 @synthesize validator = _validator;
+@synthesize loggingDelegate = _loggingDelegate;
 
 //======================================================
 #pragma mark - ** Public Methods **
@@ -115,6 +116,15 @@
             }
         }
     }
+}
+
+-(id<RDSLoggingDelegate>)loggingDelegate{
+    id<RDSLoggingDelegate> delegate;
+    @synchronized (_loggingDelegate) {
+        delegate = _loggingDelegate;
+    }
+    return delegate;
+
 }
 
 -(void)setValidator:(RDSValidator *)validator{

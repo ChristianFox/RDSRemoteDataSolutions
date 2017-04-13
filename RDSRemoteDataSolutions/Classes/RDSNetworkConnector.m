@@ -52,26 +52,78 @@
     
 }
 
+
+-(void)dataTaskWithURL:(NSURL *)url
+additionalHeaderFields:(NSDictionary<NSString *,NSString *> *)additionalHeaderFields
+            HTTPMethod:(NSString*)httpMethod
+            completion:(RDSNetworkResponseCompletionBlock)completionBlock{
+    
+    // ## Defenses
+    NSError *error;
+    if (url == nil) {
+        error = [NSError rds_URLIsNilError];
+    }
+    
+    if (error != nil) {
+        completionBlock(nil,nil,error);
+        return;
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = httpMethod;
+    [request setAllHTTPHeaderFields:additionalHeaderFields];
+    
+    // ## Passed Defenses
+    [[self.session dataTaskWithRequest:request
+                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                         
+                         completionBlock(data,response,error);
+                         
+                     }]resume];
+    
+    
+}
+
 -(void)dataTaskWithJSONData:(NSData *)jsonData
                         URL:(NSURL *)url
                  HTTPMethod:(NSString*)httpMethod
                  completion:(RDSNetworkResponseCompletionBlock)completionBlock{
     
+
+    [self dataTaskWithJSONData:jsonData
+                           URL:url
+        additionalHeaderFields:nil
+                    HTTPMethod:httpMethod
+                    completion:completionBlock];
+}
+
+-(void)dataTaskWithJSONData:(NSData *)jsonData
+                        URL:(NSURL *)url
+     additionalHeaderFields:(NSDictionary<NSString*,NSString*>*)additionalHeaderFields
+                 HTTPMethod:(NSString *)httpMethod completion:(RDSNetworkResponseCompletionBlock)completionBlock{
+    
     // ## Defenses
     NSError *error;
-    if (![self.validator validateDestinationURL:url withError:&error]) {
-        completionBlock(nil,nil,error);
-        return;
-    }else if (![self.validator validateJSONData:jsonData withError:&error]) {
+    if (url == nil) {
+        error = [NSError rds_URLIsNilError];
+    }else if (jsonData == nil) {
+        error = [NSError rds_jsonDataIsNilError];
+    }else if (jsonData.length == 0){
+        error = [NSError rds_jsonDataLengthIsZeroError];
+    }
+    
+    if (error != nil) {
         completionBlock(nil,nil,error);
         return;
     }
-    
     
     // ## Passed Defenses
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPBody = jsonData;
     request.HTTPMethod = httpMethod;
+    if (additionalHeaderFields != nil) {
+        [request setAllHTTPHeaderFields:additionalHeaderFields];
+    }
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
@@ -80,19 +132,40 @@
                          completionBlock(data,response,error);
                          
                      }]resume];
+    
 }
+
 
 -(void)dataTaskWithURLEncodedString:(NSString *)urlEncodedString
                                 URL:(NSURL *)url
                          HTTPMethod:(NSString*)httpMethod
                          completion:(RDSNetworkResponseCompletionBlock)completionBlock{
     
+
+    [self dataTaskWithURLEncodedString:urlEncodedString
+                                   URL:url
+                additionalHeaderFields:nil
+                            HTTPMethod:httpMethod
+                            completion:completionBlock];
+}
+
+-(void)dataTaskWithURLEncodedString:(NSString *)urlEncodedString
+                                URL:(NSURL *)url
+             additionalHeaderFields:(NSDictionary<NSString*,NSString*>*)additionalHeaderFields
+                         HTTPMethod:(NSString*)httpMethod
+                         completion:(RDSNetworkResponseCompletionBlock)completionBlock{
+    
     // ## Defenses
     NSError *error;
-    if (![self.validator validateDestinationURL:url withError:&error]) {
-        completionBlock(nil,nil,error);
-        return;
-    }else if (![self.validator validateWWWURLEncodedString:urlEncodedString withError:&error]) {
+    if (url == nil) {
+        error = [NSError rds_URLIsNilError];
+    }else if (urlEncodedString == nil) {
+        error = [NSError rds_URLEncodedStringIsNilError];
+    }else if (urlEncodedString.length == 0){
+        error = [NSError rds_URLEncodedStringLengthIsZeroError];
+    }
+    
+    if (error != nil) {
         completionBlock(nil,nil,error);
         return;
     }
@@ -101,9 +174,12 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = httpMethod;
     request.HTTPBody = [urlEncodedString dataUsingEncoding:NSUTF8StringEncoding];
+    if (additionalHeaderFields != nil) {
+        [request setAllHTTPHeaderFields:additionalHeaderFields];
+    }
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Accept"];
-
+    
     
     [[self.session dataTaskWithRequest:request
                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -112,17 +188,9 @@
                      }]resume];
 }
 
-
 //--------------------------------------------------------
 #pragma mark - Accessors
 //--------------------------------------------------------
--(void)setLoggingDelegate:(id<RDSLoggingDelegate>)loggingDelegate{
-    @synchronized (_loggingDelegate) {
-        if (loggingDelegate != _loggingDelegate) {
-            _loggingDelegate = loggingDelegate;
-        }
-    }
-}
 
 -(void)setValidator:(RDSValidator *)validator{
     @synchronized (_validator) {
