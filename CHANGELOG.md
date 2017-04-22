@@ -1,5 +1,10 @@
 # Change Log #
 
+## 0.8.0
+- Adds +(NSDictionary*)parseQueryString:(NSString*)query to RDSHelper
+- Refactors RDSHelper to be more class method focused. Adds class method versions of all methods, marks instance methods as deprecated
+- Adds +(NSString*)wwwFormURLEncodedStringFromParameters:(NSDictionary*)params withOrderedKeys:(NSArray*)orderedKeys
+
 ## 0.7.0
 - Adds additional methods to RDSNetworkConnectorInterface and implements then in RDSNetworkConnector. Methods are duplicates of the 3 existing methods with an additional parameter for specifying additionalHeaderFields
 - Refactors RDSNetworkConnector so new methods are called by old methods with nil passed for additionalHeaderFields 

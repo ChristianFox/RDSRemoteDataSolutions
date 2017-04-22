@@ -13,12 +13,45 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)helper;
 
 /**
- * @brief
+ * @brief Use class method instead
  * @param
  * @return
  * @since 0.3.0
  **/
--(NSString*)wwwFormURLEncodedStringFromParameters:(NSDictionary*)params;
+-(NSString*)wwwFormURLEncodedStringFromParameters:(NSDictionary*)params DEPRECATED_ATTRIBUTE;
+
+/**
+ * @brief
+ * @param
+ * @return
+ * @since 0.8.0
+ **/
++(NSString*)wwwFormURLEncodedStringFromParameters:(NSDictionary*)params;
+
+
+/**
+ * @brief
+ * @param
+ * @return
+ * @since 0.8.0
+ **/
++(NSString*)wwwFormURLEncodedStringFromParameters:(NSDictionary*)params withOrderedKeys:(NSArray*)orderedKeys;
+
+/**
+ * @brief
+ * @param
+ * @return
+ * @since 0.8.0
+ **/
++(NSString*)urlEncodedStringFromKey:(NSString*)key value:(id)value;
+
+/**
+ * @brief
+ * @param
+ * @return
+ * @since 0.8.0
+ **/
++(NSDictionary*)parseQueryString:(NSString*)query;
 
 @end
 NS_ASSUME_NONNULL_END
