@@ -1,4 +1,12 @@
-
+/********************************
+ *
+ * Copyright © 2016-2017 Christian Fox
+ * All Rights Reserved
+ * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ *
+ * This file is included with RDSRemoteDataSolutions
+ *
+ ************************************/
 
 
 #import <Foundation/Foundation.h>
@@ -23,16 +31,15 @@ NS_ASSUME_NONNULL_BEGIN
 //--------------------------------------------------------
 -(instancetype)init NS_UNAVAILABLE;
 /**
- * @brief
- * @param
- * @param
+ * @brief Convinience initiliser
+ * @return An instance of RDSSubmitter with default network connector
  * @since 0.2.0
  **/
 +(instancetype)defaultSubmitter;
 /**
- * @brief
- * @param
- * @param
+ * @brief Convinience initiliser
+ * @param networkConnector An object conforming to RDSNetworkConnectorInterface to be used instead of the default RDSNetworkConnectorInterface object
+ * @return An instance of RDSSubmitter using the specified networkConnector
  * @since 0.2.0
  **/
 +(instancetype)submitterWithNetworkConnector:(id<RDSNetworkConnectorInterface>)networkConnector;
@@ -41,9 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Submission
 //--------------------------------------------------------
 /**
- * @brief
- * @param
- * @param
+ * @brief Submit a submission (object conforming to RDSSubmissionInterface) to its designated url
+ * @param submission An object conforming to RDSSubmissionInterface.
+ * @param completionBlock A block called on completion
  * @since 0.2.0
  **/
 -(void)submitSubmission:(id<RDSSubmissionInterface>)submission

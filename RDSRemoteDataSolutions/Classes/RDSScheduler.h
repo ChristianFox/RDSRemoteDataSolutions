@@ -1,4 +1,12 @@
-
+/********************************
+ *
+ * Copyright © 2016-2017 Christian Fox
+ * All Rights Reserved
+ * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ *
+ * This file is included with RDSRemoteDataSolutions
+ *
+ ************************************/
 
 
 #import <Foundation/Foundation.h>
@@ -34,17 +42,18 @@ extern NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt;
 -(instancetype)init NS_UNAVAILABLE;
 
 /**
- * @brief
- * @param
- * @param
+ * @brief Convinience initiliser for an instance with default settings
+ * @return An instance of RDSScheduler
  * @since 0.4.0
  **/
 +(instancetype)defaultScheduler;
 
 /**
- * @brief
- * @param
- * @param
+ * @brief Convinience initiliser for an instance with custom settings
+ * @param minimum set the minimumTimeTillNextSubmissionAttempt
+ * @param maximum set the maximumTimeTillNextSubmissionAttempt
+ * @param multiplier set the multiplierOfTimeTillNextSubmissionAttempt
+ * @return An instance of RDSScheduler
  * @since 0.4.0
  **/
 +(instancetype)schedulerWithMinimumTimeBetweenSubmissionAttempts:(NSTimeInterval)minimum
@@ -55,9 +64,8 @@ extern NSTimeInterval const kDefaultMultiplierOfTimeTillNextSubmissionAttempt;
 #pragma mark - Queries
 //--------------------------------------------------------
 /**
- * @brief
- * @param
- * @param
+ * @brief Get the number seconds until the receiver will next attempt to trigger the resubmissions process.
+ * @return An NSTimeInterval with the number of seconds until any stored submissions will next be submitted.
  * @since 0.4.0
  **/
 -(NSTimeInterval)timeIntervalTillNextSubmissionAttempt;

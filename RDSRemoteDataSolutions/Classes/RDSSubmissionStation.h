@@ -1,4 +1,12 @@
-
+/********************************
+ *
+ * Copyright © 2016-2017 Christian Fox
+ * All Rights Reserved
+ * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ *
+ * This file is included with RDSRemoteDataSolutions
+ *
+ ************************************/
 
 #import <Foundation/Foundation.h>
 // Protocols
@@ -34,13 +42,15 @@ withData:(NSData*)data response:(NSURLResponse*)response;
 //--------------------------------------------------------
 -(instancetype)init NS_UNAVAILABLE;
 /**
- * @brief
+ * @brief Convinience initiliser
+ * @return An instance of RDSSubmissionStation with default network connector
  * @since 0.4.0
  **/
 +(instancetype)defaultSubmissionStation;
 /**
- * @brief
- * @param
+ * @brief Convinience initiliser
+ * @param networkConnector An object conforming to RDSNetworkConnectorInterface to be used instead of the default RDSNetworkConnectorInterface object
+ * @return An instance of RDSSubmissionStation using the specified networkConnector
  * @since 0.4.0
  **/
 +(instancetype)submissionStationWithNetworkConnector:(id<RDSNetworkConnectorInterface>)networkConnector;
@@ -50,9 +60,9 @@ withData:(NSData*)data response:(NSURLResponse*)response;
 #pragma mark - Submission
 //--------------------------------------------------------
 /**
- * @brief
- * @param
- * @param
+ * @brief Submit a submission (object conforming to RDSSubmissionInterface) to its designated url
+ * @param submission An object conforming to RDSSubmissionInterface.
+ * @param completionBlock A block called on completion
  * @since 0.4.0
  **/
 -(void)submitSubmission:(id<RDSSubmissionInterface>)submission

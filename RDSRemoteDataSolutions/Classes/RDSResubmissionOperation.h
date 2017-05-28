@@ -1,4 +1,12 @@
-
+/********************************
+ *
+ * Copyright © 2016-2017 Christian Fox
+ * All Rights Reserved
+ * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ *
+ * This file is included with RDSRemoteDataSolutions
+ *
+ ************************************/
 
 
 #import <Foundation/Foundation.h>
@@ -32,9 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype)init NS_UNAVAILABLE;
 /**
  * @brief Convinience initiliser
- * @param
- * @param
- * @return
+ * @param submissions An NSArray of objects conforming to RDSSubmissionInterface protocol
+ * @param submitter A RDSSubmitter object to be used instead of the default RDSSubmitter object
+ * @return An instance of RDSResubmissionOperation
  * @since 0.4.0
  **/
 +(instancetype)resubmissionOperationWithSubmissions:(NSArray<id<RDSSubmissionInterface>>*)submissions

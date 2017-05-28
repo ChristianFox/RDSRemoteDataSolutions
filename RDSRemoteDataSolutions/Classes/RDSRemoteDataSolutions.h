@@ -1,10 +1,12 @@
-//
-//  RDSRemoteDataSolutions.h
-//  Pods
-//
-//  Created by Leu on 05/11/2016.
-//
-//
+/********************************
+ *
+ * Copyright © 2016-2017 Christian Fox
+ * All Rights Reserved
+ * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ *
+ * This file is included with RDSRemoteDataSolutions
+ *
+ ************************************/
 
 #ifndef RDSRemoteDataSolutions_h
 #define RDSRemoteDataSolutions_h

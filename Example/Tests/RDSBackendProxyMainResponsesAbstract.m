@@ -49,7 +49,7 @@
                    NSString *string = [[NSString alloc]initWithData:data
                                                            encoding:NSUTF8StringEncoding];
                    XCTAssertNotNil(string);
-                   XCTAssertTrue([string isEqualToString:@"what"],@"Received: %@",string);
+                   XCTAssertTrue([string hasPrefix:@"HTTPMethod is GET"],@"Received: %@",string);
                    [expectation fulfill];
                }];
     

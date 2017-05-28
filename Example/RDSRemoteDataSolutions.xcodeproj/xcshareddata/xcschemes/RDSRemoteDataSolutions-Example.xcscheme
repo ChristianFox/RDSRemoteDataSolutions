@@ -42,6 +42,12 @@
                   Identifier = "RDSBackendProxyBasicResponsesTestsAbstract">
                </Test>
                <Test
+                  Identifier = "RDSLocalHostBackendProxyBasicResponsesTests">
+               </Test>
+               <Test
+                  Identifier = "RDSLocalHostBackendProxyMainResponsesTests">
+               </Test>
+               <Test
                   Identifier = "RDSNetworkConnectorLiveTests">
                </Test>
             </SkippedTests>

@@ -217,7 +217,7 @@
     submission.submissionContentType = RDSSubmissionContentTypeJSONData;
     submission.parameters = @{@"words":@[@"one",@"two"],@"numbers":@[@1,@2,@3]};
     submission.HTTPMethod = @"POST";
-
+    submission.shouldScheduleForResubmissionOnFailure = YES;
     
     // WHEN
     [station submitSubmission:submission
@@ -226,7 +226,6 @@
                    XCTAssertNil(data);
                    XCTAssertNotNil(error);
                    XCTAssertEqual(error.code, 1234);
-                   
                    
                }];
     
