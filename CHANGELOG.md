@@ -1,5 +1,8 @@
 # Change Log #
 
+## 0.9.1
+- Updates Licence file
+
 ## 0.9.0
 - Updates Licence file
 - Fixes a few issues with tests. Now 58 tests passing, 0 failing but may are disabled because they need to connect to a local host which is not set up on this machine
