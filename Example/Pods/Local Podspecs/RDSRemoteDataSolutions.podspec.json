@@ -1,9 +1,9 @@
 {
   "name": "RDSRemoteDataSolutions",
-  "version": "0.6.0",
+  "version": "0.9.1",
   "summary": "A RDSRemoteDataSolutions.",
-  "description": "Connect to network etc. blah blah blha",
-  "homepage": "https://kfxtech@bitbucket.org/kfxteam/rdsremotedatasolutions.git",
+  "description": "Connect to network & submit data to a server etc blah blah blah. Includes scheduling and resubmissions",
+  "homepage": "https://kfxtech@bitbucket.org/kfx_pods/rdsremotedatasolutions.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "Christian Fox": "christianfox890@icloud.com"
   },
   "source": {
-    "git": "https://kfxtech@bitbucket.org/kfxteam/rdsremotedatasolutions.git",
-    "tag": "0.6.0"
+    "git": "https://kfxtech@bitbucket.org/kfx_pods/rdsremotedatasolutions.git",
+    "tag": "0.9.1"
   },
   "platforms": {
     "ios": "8.0"
@@ -21,6 +21,9 @@
   "source_files": "RDSRemoteDataSolutions/Classes/**/*",
   "dependencies": {
     "KFXAdditions": [
+
+    ],
+    "KFXLog": [
 
     ]
   }

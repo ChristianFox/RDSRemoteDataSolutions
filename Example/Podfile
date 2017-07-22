@@ -6,7 +6,10 @@ target 'RDSRemoteDataSolutions_Example' do
   ### If using private pods
   source 'https://bitbucket.org/kfxteam/kfxtech_cocoapodsspec'
   pod 'KFXLog'
+  
+  source 'https://bitbucket.org/kfx_pods/kfxsharedspecs.git'
   pod 'KFXAdditions'
+  
   ### If using from trunk
   source 'http://github.com/Cocoapods/Specs.git'
   
