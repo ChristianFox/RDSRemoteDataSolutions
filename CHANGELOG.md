@@ -1,5 +1,8 @@
 # Change Log #
 
+## 0.9.2
+- replaces use of deprecated method with new version
+
 ## 0.9.1
 - Updates Licence file
 

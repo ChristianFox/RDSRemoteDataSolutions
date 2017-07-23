@@ -133,7 +133,7 @@
         
     }else if ([value isKindOfClass:[NSDictionary class]]){
         // Dictionaries can be handled recursively by initial method
-        string = [self wwwFormURLEncodedStringFromParameters:value];
+        string = [RDSHelper wwwFormURLEncodedStringFromParameters:value];
     }
     
     return string;
