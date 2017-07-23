@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RDSRemoteDataSolutions'
-  s.version          = '0.9.1'
+  s.version          = '0.9.2'
   s.summary          = 'A RDSRemoteDataSolutions.'
 
   s.description      = <<-DESC

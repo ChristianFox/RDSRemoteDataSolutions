@@ -98,7 +98,7 @@
             
         }else if ([submission submissionContentType] == RDSSubmissionContentTypeWWWURLEncodedString){
             
-            NSString *encodedString = [self.helper wwwFormURLEncodedStringFromParameters:params];
+            NSString *encodedString = [RDSHelper wwwFormURLEncodedStringFromParameters:params];
             [self.networkConnector dataTaskWithURLEncodedString:encodedString
                                                             URL:[submission destinationURL]
                                                      HTTPMethod:HTTPMethod
