@@ -1,8 +1,8 @@
 /********************************
  *
- * Copyright © 2016-2017 Christian Fox
- * All Rights Reserved
- * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ * Copyright © 2016-2018 Christian Fox
+ *
+ * MIT Licence - Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
  *
  * This file is included with KFXAdditions
  *
@@ -71,11 +71,11 @@
 
 -(void)kfx_openURL:(NSURL *)url options:(NSDictionary *)options completionHandler:(void (^)(BOOL))completion{
     
-    if ([self respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+    if (@available(iOS 10.0, *)) {
         if ([self canOpenURL:url]) {
             [self openURL:url
-                         options:options
-               completionHandler:completion];
+                  options:options
+        completionHandler:completion];
         }else{
             completion(NO);
         }

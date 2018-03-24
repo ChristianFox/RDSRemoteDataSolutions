@@ -1,8 +1,8 @@
 /********************************
  *
- * Copyright © 2016-2017 Christian Fox
- * All Rights Reserved
- * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ * Copyright © 2016-2018 Christian Fox
+ *
+ * MIT Licence - Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
  *
  * This file is included with KFXAdditions
  *
@@ -90,17 +90,7 @@
     if (components.count == 0) {
         return nil;
     }
-    
-    NSMutableString *mutString = [[NSMutableString alloc]init];
-    
-    NSInteger idx = 0;
-    for (NSString *subString in components) {
-        [mutString appendString:subString];
-        if (++idx < components.count) {
-            [mutString appendString:separator];
-        }
-    }
-    return [mutString copy];
+    return [components componentsJoinedByString:separator];
 }
 
 +(NSString*)kfx_yesOrNo:(BOOL)boolValue{
@@ -157,6 +147,72 @@
     return count;
 }
 
+-(NSUInteger)kfx_indexOfSubstring:(NSString *)substring{
+    NSRange range = [self rangeOfString:substring];
+    return range.location;
+}
+
+-(NSUInteger)kfx_indexOfSubstring:(NSString *)substring
+                        fromIndex:(NSInteger)index{
+    NSString *test = [self substringFromIndex:index];
+    return [test kfx_indexOfSubstring:substring] + index;
+}
+
+-(NSUInteger)kfx_indexOfLastSubstring:(NSString *)substring{
+    
+    NSUInteger finalIndex = NSNotFound;
+    NSUInteger matchIndex = 0;
+    NSString* test = self;
+    while ([test containsString:substring]) {
+
+        matchIndex = [test kfx_indexOfSubstring:substring];
+        if (finalIndex == NSNotFound) {
+            finalIndex = matchIndex;
+        }else{
+            finalIndex = matchIndex+1 + finalIndex;
+        }
+        test = [test substringFromIndex:matchIndex + 1];
+    }
+    return finalIndex;
+}
+
+-(CGFloat)kfx_matchPercentageWithOtherString:(NSString *)visitorString{
+    
+    if ([self isEqualToString:visitorString]) {
+        return 1.0;
+    }
+    
+    NSInteger matchCount = 0;
+    NSInteger receiverLength = self.length;
+    NSInteger visitorLength = visitorString.length;
+    NSInteger longestLength;
+
+    if (receiverLength >= visitorLength) {
+        longestLength = receiverLength;
+        for (NSInteger idx = 0; idx < receiverLength; idx++) {
+            
+            if (idx < visitorLength) {
+                unichar rC = [self characterAtIndex:idx];
+                unichar vC = [visitorString characterAtIndex:idx];
+                matchCount += (rC == vC);
+            }
+        }
+    }else{
+        longestLength = visitorLength;
+        for (NSInteger idx = 0; idx < visitorLength; idx++) {
+            
+            if (idx < receiverLength) {
+                unichar rC = [self characterAtIndex:idx];
+                unichar vC = [visitorString characterAtIndex:idx];
+                matchCount += (rC == vC);
+            }
+        }
+    }
+    
+    return (CGFloat)matchCount / (CGFloat)longestLength;
+}
+
+
 //--------------------------------------------------------
 #pragma mark - New String with edits
 //--------------------------------------------------------
@@ -190,6 +246,10 @@
         return whiteSpaceSquashed;
     }
 
+}
+
+-(NSString *)kfx_trim{
+    return [self kfx_stringByTrimmingWhiteSpaceAndNewLines];
 }
 
 -(NSString *)kfx_stringByTrimmingWhiteSpaceAndNewLines{

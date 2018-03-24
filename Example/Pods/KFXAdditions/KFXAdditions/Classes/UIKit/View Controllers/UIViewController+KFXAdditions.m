@@ -1,8 +1,8 @@
 /********************************
  *
- * Copyright © 2016-2017 Christian Fox
- * All Rights Reserved
- * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ * Copyright © 2016-2018 Christian Fox
+ *
+ * MIT Licence - Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
  *
  * This file is included with KFXAdditions
  *
@@ -94,7 +94,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     };
     
-    if ([NSThread mainThread]) {
+    if ([NSThread isMainThread]) {
         alertBlock();
     }else{
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -114,7 +114,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     };
     
-    if ([NSThread mainThread]) {
+    if ([NSThread isMainThread]) {
         alertBlock();
     }else{
         dispatch_async(dispatch_get_main_queue(), ^{

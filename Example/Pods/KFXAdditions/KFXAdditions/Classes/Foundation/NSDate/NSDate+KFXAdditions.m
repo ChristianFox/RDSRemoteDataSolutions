@@ -1,8 +1,8 @@
 /********************************
  *
- * Copyright © 2016-2017 Christian Fox
- * All Rights Reserved
- * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ * Copyright © 2016-2018 Christian Fox
+ *
+ * MIT Licence - Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
  *
  * This file is included with KFXAdditions
  *
@@ -88,6 +88,34 @@
 	NSDateComponents *compB = [anotherDate kfx_currentCalendarDateComponents];
 	return ([compA hour]==[compB hour]
 			&& [compA minute]==[compB minute]);
+}
+
+//--------------------------------------------------------
+#pragma mark Queries
+//--------------------------------------------------------
+/// Returns YES is the receiver takes place in today
+-(BOOL)kfx_isToday{
+    
+    NSDateComponents *thisComp = [self kfx_currentCalendarDateComponents];
+    NSDateComponents *todayComp = [[NSDate date] kfx_currentCalendarDateComponents];
+    return (thisComp.year == todayComp.year
+            && thisComp.weekOfYear == todayComp.weekOfYear
+            && thisComp.day == todayComp.day);
+}
+
+/// Returns YES is the receiver takes place this month
+-(BOOL)kfx_isThisMonth{
+    NSDateComponents *thisComp = [self kfx_currentCalendarDateComponents];
+    NSDateComponents *todayComp = [[NSDate date] kfx_currentCalendarDateComponents];
+    return (thisComp.year == todayComp.year
+            && thisComp.month == todayComp.month);
+}
+
+/// Returns YES is the receiver takes place this year
+-(BOOL)kfx_isThisYear{
+    NSDateComponents *thisComp = [self kfx_currentCalendarDateComponents];
+    NSDateComponents *todayComp = [[NSDate date] kfx_currentCalendarDateComponents];
+    return (thisComp.year == todayComp.year);
 }
 
 
@@ -180,9 +208,38 @@
 	
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	
-	return [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth| NSCalendarUnitHour | NSCalendarUnitMinute fromDate:self];
+	return [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth| NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:self];
 }
 
+
+//--------------------------------------------------------
+#pragma mark New Dates
+//--------------------------------------------------------
+-(NSDate *)kfx_dateByAddingDays:(NSInteger)days{
+    
+    NSDateComponents *components = [self kfx_currentCalendarDateComponents];
+    [components setDay:components.day+days];
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+-(NSDate*)kfx_dateWithHour:(NSInteger)hour minute:(NSInteger)min second:(NSInteger)sec{
+    
+    NSDateComponents *components = [self kfx_currentCalendarDateComponents];
+    [components setHour:hour];
+    [components setMinute:min];
+    [components setSecond:sec];
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+-(NSDate*)kfx_dateByAddingDays:(NSInteger)days withHour:(NSInteger)hour minute:(NSInteger)min second:(NSInteger)sec{
+    
+    NSDateComponents *components = [self kfx_currentCalendarDateComponents];
+    [components setDay:components.day+days];
+    [components setHour:hour];
+    [components setMinute:min];
+    [components setSecond:sec];
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
 
 
 

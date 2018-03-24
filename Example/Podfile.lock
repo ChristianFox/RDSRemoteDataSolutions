@@ -1,7 +1,7 @@
 PODS:
-  - KFXAdditions (0.36.0)
-  - KFXLog (1.2.0)
-  - RDSRemoteDataSolutions (0.9.1):
+  - KFXAdditions (2.0.3)
+  - KFXLog (1.3.0)
+  - RDSRemoteDataSolutions (1.0.0):
     - KFXAdditions
     - KFXLog
 
@@ -15,10 +15,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  KFXAdditions: 371560b0199a420e8a9a44e02e2e4c2e10ebc0bc
-  KFXLog: e3611d261bbb3a52cff4c34cc3f199a6a70752f0
-  RDSRemoteDataSolutions: 2592b798d24538e257f7e2e52c79401531fb71a7
+  KFXAdditions: 79e18ef03b55c4f7b8af34df12f513c7c3319872
+  KFXLog: 4bcecb822a210499261dcb90cde346b6b2190b07
+  RDSRemoteDataSolutions: 3b5f1987e5f92747f1447933fba8e99911013afc
 
-PODFILE CHECKSUM: b1b1c588c197b663d51ff191547f497eb19b75ad
+PODFILE CHECKSUM: e02f14608830d99c9367cb5b3dbd70c56f355d11
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

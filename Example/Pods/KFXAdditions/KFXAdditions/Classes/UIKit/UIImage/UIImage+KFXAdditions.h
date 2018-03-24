@@ -1,8 +1,8 @@
 /********************************
  *
- * Copyright © 2016-2017 Christian Fox
- * All Rights Reserved
- * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ * Copyright © 2016-2018 Christian Fox
+ *
+ * MIT Licence - Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
  *
  * This file is included with KFXAdditions
  *
@@ -21,8 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-
-#pragma mark - Resizing & Cropping
+//--------------------------------------------------------
+#pragma mark Resizing & Cropping
+//--------------------------------------------------------
 /**
  *  Returns a copy of this image that is cropped to the given bounds. This method ignores the image's imageOrientation setting.
  *
@@ -78,8 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(UIImage*)kfx_resizedImageToFitInSize:(CGSize)boundingSize scaleIfSmaller:(BOOL)scale;
 
 
-#pragma mark - Alpha Channels
-
+//--------------------------------------------------------
+#pragma mark Alpha Channels
+//--------------------------------------------------------
 /**
  *  @return Returns true if the image has an alpha layer
  */
@@ -97,7 +99,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIImage *)kfx_transparentBorderImage:(NSUInteger)borderSize;
 
-#pragma mark - Rounded Corners
+//--------------------------------------------------------
+#pragma mark Rounded Corners
+//--------------------------------------------------------
 /**
  *  Creates a copy of this image with rounded corners
  *
@@ -132,10 +136,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return a copy of this image masked by the given image
  */
-
 -(UIImage*)kfx_imageMaskedWithImage:(UIImage *)maskImage;
 
-
+//--------------------------------------------------------
+#pragma mark Generate Images
+//--------------------------------------------------------
++(UIImage*)kfx_imageWithColour:(UIColor*)colour;
 
 
 @end

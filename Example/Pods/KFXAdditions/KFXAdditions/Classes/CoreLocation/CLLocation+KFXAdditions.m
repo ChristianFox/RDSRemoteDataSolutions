@@ -1,8 +1,8 @@
 /********************************
  *
- * Copyright © 2016-2017 Christian Fox
- * All Rights Reserved
- * Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
+ * Copyright © 2016-2018 Christian Fox
+ *
+ * MIT Licence - Full licence details can be found in the file 'LICENSE' or in the Pods-{yourProjectName}-acknowledgements.markdown
  *
  * This file is included with KFXAdditions
  *
@@ -38,6 +38,17 @@ double const k_DegreesPerMetreLongitude = 0.0000089832;
 //--------------------------------------------------------
 #pragma mark - Initilisation
 //--------------------------------------------------------
++(instancetype)kfx_locationWithCoordinates:(CLLocationCoordinate2D)coordinates{
+    
+    if (!CLLocationCoordinate2DIsValid(coordinates)) {
+        return nil;
+    }
+    
+    CLLocation *location = [[CLLocation alloc]initWithLatitude:coordinates.latitude
+                                                     longitude:coordinates.longitude];
+    return location;
+}
+
 -(instancetype)locationByAdjustingCoordinatesInDegreesWithLatitude:(CLLocationDegrees)latitudeAdjustment
                                                          longitude:(CLLocationDegrees)longitudeAdjustment{
     
@@ -200,12 +211,12 @@ double const k_DegreesPerMetreLongitude = 0.0000089832;
 }
 
 -(NSString*)kfx_formattedSpeed{
-    return [NSString stringWithFormat:@"Speed %.2fmps>",
+    return [NSString stringWithFormat:@"Speed: %.2fmps>",
             self.speed];
 }
 
 -(NSString*)kfx_formattedCourse{
-    return [NSString stringWithFormat:@"Course %.2f>",
+    return [NSString stringWithFormat:@"Course: %.2f>",
             self.course];
 
 }

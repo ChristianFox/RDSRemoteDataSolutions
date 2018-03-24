@@ -1,6 +1,5 @@
 # RDSRemoteDataSolutions
 
-[![CI Status](http://img.shields.io/travis/Christian Fox/RDSRemoteDataSolutions.svg?style=flat)](https://travis-ci.org/Christian Fox/RDSRemoteDataSolutions)
 [![Version](https://img.shields.io/cocoapods/v/RDSRemoteDataSolutions.svg?style=flat)](http://cocoapods.org/pods/RDSRemoteDataSolutions)
 [![License](https://img.shields.io/cocoapods/l/RDSRemoteDataSolutions.svg?style=flat)](http://cocoapods.org/pods/RDSRemoteDataSolutions)
 [![Platform](https://img.shields.io/cocoapods/p/RDSRemoteDataSolutions.svg?style=flat)](http://cocoapods.org/pods/RDSRemoteDataSolutions)
@@ -37,7 +36,7 @@ Another cool feature is the RDSNetworkConnectorInterface protocol. This defines 
 
 ## Author
 
-Christian Fox, christianfox890@icloud.com
+Christian Fox, christianfox@kfxtech.com
 
 ## License
 
