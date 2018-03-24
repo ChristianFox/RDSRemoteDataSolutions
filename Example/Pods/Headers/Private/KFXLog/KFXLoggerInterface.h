@@ -1,0 +1,1 @@
+../../../KFXLog/KFXLog/Classes/Loggers/Logger Protocols/KFXLoggerInterface.h

@@ -1,0 +1,1 @@
+../../../KFXLog/KFXLog/Classes/Log Descriptors/Abstract Log Descriptors/KFXFormattedLogDescriptor.h

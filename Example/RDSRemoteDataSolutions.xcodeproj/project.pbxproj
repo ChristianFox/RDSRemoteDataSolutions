@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A4966377E6F6AAE667B40EE /* Pods_RDSRemoteDataSolutions_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACEA4609E20B07EC3245FFC /* Pods_RDSRemoteDataSolutions_Example.framework */; };
-		13609445F635BDD9C097B80B /* Pods_RDSRemoteDataSolutions_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536F664C0E9A576DD7DFF7F /* Pods_RDSRemoteDataSolutions_Tests.framework */; };
+		258011F7201C807733B52A3F /* libPods-RDSRemoteDataSolutions_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0CF62E26FDDF962161C8AA /* libPods-RDSRemoteDataSolutions_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -21,6 +20,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		65E9E6BE00A3FC87800DEEBE /* libPods-RDSRemoteDataSolutions_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E96A36E9813BB9AF6AE50C8 /* libPods-RDSRemoteDataSolutions_Example.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		DB6615D01DCD429C00AE8B43 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = DB6615CF1DCD429C00AE8B43 /* CHANGELOG.md */; };
 		DB6615D21DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6615D11DCD548600AE8B43 /* RDSBackendProxyBasicResponsesTestsAbstract.m */; };
@@ -57,7 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		376552F3B23126EEA0CC268A /* RDSRemoteDataSolutions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RDSRemoteDataSolutions.podspec; path = ../RDSRemoteDataSolutions.podspec; sourceTree = "<group>"; };
+		376552F3B23126EEA0CC268A /* RDSRemoteDataSolutions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RDSRemoteDataSolutions.podspec; path = ../RDSRemoteDataSolutions.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* RDSRemoteDataSolutions_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RDSRemoteDataSolutions_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,11 +77,11 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		61F1DC332E0A9877A00E5C1E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		8536F664C0E9A576DD7DFF7F /* Pods_RDSRemoteDataSolutions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RDSRemoteDataSolutions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E96A36E9813BB9AF6AE50C8 /* libPods-RDSRemoteDataSolutions_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RDSRemoteDataSolutions_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8ACEA4609E20B07EC3245FFC /* Pods_RDSRemoteDataSolutions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RDSRemoteDataSolutions_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		911BB05376AAC14142FD9DEC /* Pods-RDSRemoteDataSolutions_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Example/Pods-RDSRemoteDataSolutions_Example.release.xcconfig"; sourceTree = "<group>"; };
 		954754D91DBB5BC02E788D62 /* Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Tests/Pods-RDSRemoteDataSolutions_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C0CF62E26FDDF962161C8AA /* libPods-RDSRemoteDataSolutions_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RDSRemoteDataSolutions_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A84D91D5C0F29FB81A673E73 /* Pods-RDSRemoteDataSolutions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Tests/Pods-RDSRemoteDataSolutions_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB0BC979680907282280E85 /* Pods-RDSRemoteDataSolutions_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RDSRemoteDataSolutions_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RDSRemoteDataSolutions_Example/Pods-RDSRemoteDataSolutions_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DB6615CF1DCD429C00AE8B43 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				0A4966377E6F6AAE667B40EE /* Pods_RDSRemoteDataSolutions_Example.framework in Frameworks */,
+				65E9E6BE00A3FC87800DEEBE /* libPods-RDSRemoteDataSolutions_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				13609445F635BDD9C097B80B /* Pods_RDSRemoteDataSolutions_Tests.framework in Frameworks */,
+				258011F7201C807733B52A3F /* libPods-RDSRemoteDataSolutions_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,8 +182,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				8ACEA4609E20B07EC3245FFC /* Pods_RDSRemoteDataSolutions_Example.framework */,
-				8536F664C0E9A576DD7DFF7F /* Pods_RDSRemoteDataSolutions_Tests.framework */,
+				7E96A36E9813BB9AF6AE50C8 /* libPods-RDSRemoteDataSolutions_Example.a */,
+				9C0CF62E26FDDF962161C8AA /* libPods-RDSRemoteDataSolutions_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

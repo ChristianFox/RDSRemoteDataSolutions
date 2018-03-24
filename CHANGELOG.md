@@ -1,11 +1,13 @@
 # Change Log #
 
-## 1.0.0 | Updates Licence
+### 1.0.1 | Set pod minimum iOS version to 8.2
 
-## 0.9.2 & 0.9.3
+### 1.0.0 | Updates Licence
+
+### 0.9.2 & 0.9.3
 - replaces use of deprecated method with new version
 
-## 0.9.1
+### 0.9.1
 - Updates Licence file
 
 ## 0.9.0

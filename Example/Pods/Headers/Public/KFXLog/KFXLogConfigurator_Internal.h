@@ -1,0 +1,1 @@
+../../../KFXLog/KFXLog/Classes/Main/KFXLogConfigurator/KFXLogConfigurator_Internal.h
