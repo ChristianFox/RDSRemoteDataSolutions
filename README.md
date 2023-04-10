@@ -1,8 +1,8 @@
-# RDSRemoteDataSolutions
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
-[![Version](https://img.shields.io/cocoapods/v/RDSRemoteDataSolutions.svg?style=flat)](http://cocoapods.org/pods/RDSRemoteDataSolutions)
-[![License](https://img.shields.io/cocoapods/l/RDSRemoteDataSolutions.svg?style=flat)](http://cocoapods.org/pods/RDSRemoteDataSolutions)
-[![Platform](https://img.shields.io/cocoapods/p/RDSRemoteDataSolutions.svg?style=flat)](http://cocoapods.org/pods/RDSRemoteDataSolutions)
+# DEPRECATED - This project is no longer maintained or used by the author
+
+# RDSRemoteDataSolutions
 
 ## Example
 
